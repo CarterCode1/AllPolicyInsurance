@@ -4,6 +4,7 @@ namespace AllPolicyInsurance.Models
 {
     public class InsurancePolicy
     {
+        public Guid Id { get; set; }
         public DateTime EffectiveDate { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

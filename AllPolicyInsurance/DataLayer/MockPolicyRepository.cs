@@ -1,6 +1,7 @@
 ﻿using AllPolicyInsurance.Models;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace AllPolicyInsurance.DataLayer
 {
@@ -11,6 +12,7 @@ namespace AllPolicyInsurance.DataLayer
         {
             new InsurancePolicy()
             {
+                Id = Guid.NewGuid(),
                 EffectiveDate = DateTime.Now,
                 FirstName = "Joe",
                 LastName = "Burrow",
@@ -24,6 +26,7 @@ namespace AllPolicyInsurance.DataLayer
 
             new InsurancePolicy()
             {
+                Id = Guid.NewGuid(),
                 EffectiveDate = DateTime.Now,
                 FirstName = "Ja'Marr",
                 LastName = "Chase",
@@ -37,7 +40,9 @@ namespace AllPolicyInsurance.DataLayer
         };
         public InsurancePolicy CreateInsurancePolicy(InsurancePolicy newInsurancePolicy)
         {
-            throw new System.NotImplementedException();
+            newInsurancePolicy.Id = Guid.NewGuid();
+            _insurancePolicies.Add(newInsurancePolicy);
+            return newInsurancePolicy;
         }
 
         public void DeletePolicy(InsurancePolicy policy)
@@ -50,9 +55,10 @@ namespace AllPolicyInsurance.DataLayer
             throw new System.NotImplementedException();
         }
 
-        public List<InsurancePolicy> GetPoliciesByDriversLiscense(string liscenseNumber)
+        public IList<InsurancePolicy> GetPoliciesByDriversLiscense(string liscenseNumber)
         {
-            return _insurancePolicies;
+            var matchedPolicies = from policy in _insurancePolicies where policy.DriversLicenseNumber == liscenseNumber select policy;
+            return matchedPolicies.ToList();
         }
     }
 }

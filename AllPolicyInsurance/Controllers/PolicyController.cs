@@ -22,23 +22,32 @@ namespace AllPolicyInsurance.Controllers
             _policyRepository = policyRepository;
         }
 
-        [HttpGet("byId")]
+        [HttpGet]
+        [Route("id/{policyId}")]
         public IActionResult GetPoliciesById(int id)
         {
             throw new NotImplementedException();
         }
 
-        [HttpGet("byLiscence")]
+        [HttpGet]
+        [Route("liscence/{liscenceNumber}")]
         public IActionResult GetPoliciesByDriversLiscense(string liscence)
         {
-            return Ok(_policyRepository.GetPoliciesByDriversLiscense(liscence));
+            var policy = _policyRepository.GetPoliciesByDriversLiscense(liscence);
+
+            if(policy != null)
+            {
+                return Ok(policy);
+            }
+            return NotFound($"Policy with Drivers Liscense {liscence} was not found");
         }
 
 
         [HttpPost]
         public IActionResult CreatePolicy([FromBody] InsurancePolicy insurancePolicy)
         {
-            throw new NotImplementedException();
+            _policyRepository.CreateInsurancePolicy(insurancePolicy);
+            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + insurancePolicy.Id, insurancePolicy);
         }
     }
 }
