@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace AllPolicyInsurance.Models
 {
     public class InsurancePolicy
     {
+        [Key]
         public Guid Id { get; set; }
         public int PolicyId { get; set; }
         public DateTime EffectiveDate { get; set; }
