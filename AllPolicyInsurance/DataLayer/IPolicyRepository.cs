@@ -6,6 +6,7 @@ namespace AllPolicyInsurance.DataLayer
 {
     public interface IPolicyRepository
     {
+        IList<InsurancePolicy> GetPolicies();
         InsurancePolicy GetPolicyById(int id);
         IList<InsurancePolicy> GetPoliciesByDriversLiscense(string liscenseNumber);
         InsurancePolicy CreateInsurancePolicy(InsurancePolicy newInsurancePolicy);

@@ -23,19 +23,29 @@ namespace AllPolicyInsurance.Controllers
         }
 
         [HttpGet]
-        [Route("id/{policyId}")]
-        public IActionResult GetPoliciesById(int id)
+        public IActionResult GetPolicies()
         {
-            throw new NotImplementedException();
+            return Ok(_policyRepository.GetPolicies());
         }
 
-        [HttpGet]
-        [Route("liscence/{liscenceNumber}")]
-        public IActionResult GetPoliciesByDriversLiscense(string liscence)
+        [HttpGet("id/{id}")]
+        public IActionResult GetPoliciesById(int id)
+        {
+            var policy = _policyRepository.GetPolicyById(id);
+
+            if (policy != null)
+            {
+                return Ok(policy);
+            }
+            return NotFound($"Policy with Id: {id} was not found");
+        }
+
+        [HttpGet("liscence/{liscence}")]
+        public IActionResult GetPoliciesByDriversLiscense(string liscence, string sortOrder , bool isExpired = false)
         {
             var policy = _policyRepository.GetPoliciesByDriversLiscense(liscence);
 
-            if(policy != null)
+            if(policy.Any())
             {
                 return Ok(policy);
             }

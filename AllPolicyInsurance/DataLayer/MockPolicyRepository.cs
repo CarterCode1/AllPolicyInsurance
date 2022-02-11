@@ -13,6 +13,7 @@ namespace AllPolicyInsurance.DataLayer
             new InsurancePolicy()
             {
                 Id = Guid.NewGuid(),
+                PolicyId = 1234,
                 EffectiveDate = DateTime.Now,
                 FirstName = "Joe",
                 LastName = "Burrow",
@@ -27,6 +28,7 @@ namespace AllPolicyInsurance.DataLayer
             new InsurancePolicy()
             {
                 Id = Guid.NewGuid(),
+                PolicyId = 8888123,
                 EffectiveDate = DateTime.Now,
                 FirstName = "Ja'Marr",
                 LastName = "Chase",
@@ -38,6 +40,11 @@ namespace AllPolicyInsurance.DataLayer
                 PremiumPrice = 250.0M
             },
         };
+
+        public IList<InsurancePolicy> GetPolicies()
+        {
+            return _insurancePolicies;
+        }
         public InsurancePolicy CreateInsurancePolicy(InsurancePolicy newInsurancePolicy)
         {
             newInsurancePolicy.Id = Guid.NewGuid();
@@ -52,13 +59,12 @@ namespace AllPolicyInsurance.DataLayer
 
         public InsurancePolicy GetPolicyById(int id)
         {
-            throw new System.NotImplementedException();
+            return _insurancePolicies.SingleOrDefault(x => x.PolicyId == id);
         }
 
         public IList<InsurancePolicy> GetPoliciesByDriversLiscense(string liscenseNumber)
         {
-            var matchedPolicies = from policy in _insurancePolicies where policy.DriversLicenseNumber == liscenseNumber select policy;
-            return matchedPolicies.ToList();
+            return _insurancePolicies.Where(p => p.DriversLicenseNumber == liscenseNumber).ToList();
         }
     }
 }
