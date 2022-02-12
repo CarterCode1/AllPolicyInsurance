@@ -38,7 +38,7 @@ namespace AllPolicyInsurance
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AllPolicyInsurance", Version = "v1" });
             });
-            services.AddSingleton<IPolicyRepository, MockPolicyRepository>();
+            services.AddScoped<IPolicyRepository, PolicyRepository>();
             services.AddDbContext<ApplicationDBContext>(dbContextOption => dbContextOption.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 

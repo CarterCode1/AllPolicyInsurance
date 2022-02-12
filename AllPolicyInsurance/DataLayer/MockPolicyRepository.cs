@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using AllPolicyInsurance.Dto;
 
 namespace AllPolicyInsurance.DataLayer
 {
@@ -45,10 +46,11 @@ namespace AllPolicyInsurance.DataLayer
         {
             return _insurancePolicies;
         }
-        public InsurancePolicy CreateInsurancePolicy(InsurancePolicy newInsurancePolicy)
+        public InsurancePolicy CreateInsurancePolicy(PolicyDTO policy)
         {
-            newInsurancePolicy.Id = Guid.NewGuid();
+            var newInsurancePolicy = new InsurancePolicy(policy);
             _insurancePolicies.Add(newInsurancePolicy);
+
             return newInsurancePolicy;
         }
 

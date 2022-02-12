@@ -1,4 +1,5 @@
 ﻿
+using AllPolicyInsurance.Dto;
 using AllPolicyInsurance.Models;
 using System.Collections.Generic;
 
@@ -9,7 +10,7 @@ namespace AllPolicyInsurance.DataLayer
         IList<InsurancePolicy> GetPolicies();
         InsurancePolicy GetPolicyById(int id);
         IList<InsurancePolicy> GetPoliciesByDriversLiscense(string liscenseNumber);
-        InsurancePolicy CreateInsurancePolicy(InsurancePolicy newInsurancePolicy);
+        InsurancePolicy CreateInsurancePolicy(PolicyDTO policyDTO);
         void DeletePolicy(InsurancePolicy policy);
     }
 }

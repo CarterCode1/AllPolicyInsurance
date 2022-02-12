@@ -11,8 +11,7 @@ namespace AllPolicyInsurance.Migrations
                 name: "Address",
                 columns: table => new
                 {
-                    AddressId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AddressId = table.Column<byte>(type: "tinyint", nullable: false),
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     State = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -27,8 +26,7 @@ namespace AllPolicyInsurance.Migrations
                 name: "Vehicles",
                 columns: table => new
                 {
-                    VehicleId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VehicleId = table.Column<byte>(type: "tinyint", nullable: false),
                     Year = table.Column<int>(type: "int", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Make = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -43,13 +41,14 @@ namespace AllPolicyInsurance.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PolicyId = table.Column<int>(type: "int", nullable: false),
+                    PolicyId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     EffectiveDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DriversLicenseNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    VehicleId = table.Column<int>(type: "int", nullable: true),
-                    AddressId = table.Column<int>(type: "int", nullable: true),
+                    VehicleId = table.Column<byte>(type: "tinyint", nullable: false),
+                    AddressId = table.Column<byte>(type: "tinyint", nullable: false),
                     ExpirationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PremiumPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
@@ -61,13 +60,13 @@ namespace AllPolicyInsurance.Migrations
                         column: x => x.AddressId,
                         principalTable: "Address",
                         principalColumn: "AddressId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_InsurancePolicies_Vehicles_VehicleId",
                         column: x => x.VehicleId,
                         principalTable: "Vehicles",
                         principalColumn: "VehicleId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

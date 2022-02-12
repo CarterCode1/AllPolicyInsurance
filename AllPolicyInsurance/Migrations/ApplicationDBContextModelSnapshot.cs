@@ -21,10 +21,8 @@ namespace AllPolicyInsurance.Migrations
 
             modelBuilder.Entity("AllPolicyInsurance.Models.Address", b =>
                 {
-                    b.Property<int>("AddressId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<byte>("AddressId")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
@@ -49,8 +47,8 @@ namespace AllPolicyInsurance.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("AddressId")
-                        .HasColumnType("int");
+                    b.Property<byte>("AddressId")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("DriversLicenseNumber")
                         .HasColumnType("nvarchar(max)");
@@ -68,13 +66,15 @@ namespace AllPolicyInsurance.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PolicyId")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("PremiumPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("VehicleId")
-                        .HasColumnType("int");
+                    b.Property<byte>("VehicleId")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("Id");
 
@@ -87,10 +87,8 @@ namespace AllPolicyInsurance.Migrations
 
             modelBuilder.Entity("AllPolicyInsurance.Models.Vehicle", b =>
                 {
-                    b.Property<int>("VehicleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<byte>("VehicleId")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("Make")
                         .HasColumnType("nvarchar(max)");
@@ -110,11 +108,15 @@ namespace AllPolicyInsurance.Migrations
                 {
                     b.HasOne("AllPolicyInsurance.Models.Address", "Address")
                         .WithMany()
-                        .HasForeignKey("AddressId");
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AllPolicyInsurance.Models.Vehicle", "Vehicle")
                         .WithMany()
-                        .HasForeignKey("VehicleId");
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Address");
 

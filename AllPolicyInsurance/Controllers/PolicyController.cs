@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AllPolicyInsurance.Models;
 using AllPolicyInsurance.DataLayer;
+using AllPolicyInsurance.Dto;
 
 namespace AllPolicyInsurance.Controllers
 {
@@ -54,10 +55,10 @@ namespace AllPolicyInsurance.Controllers
 
 
         [HttpPost]
-        public IActionResult CreatePolicy([FromBody] InsurancePolicy insurancePolicy)
+        public IActionResult CreatePolicy([FromBody] PolicyDTO policy)
         {
-            _policyRepository.CreateInsurancePolicy(insurancePolicy);
-            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + insurancePolicy.Id, insurancePolicy);
+             var createdPolicy = _policyRepository.CreateInsurancePolicy(policy);
+            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + createdPolicy.Id, createdPolicy);
         }
     }
 }
