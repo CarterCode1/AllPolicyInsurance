@@ -13,5 +13,11 @@ namespace AllPolicyInsurance.Models
         public DbSet<InsurancePolicy> InsurancePolicies { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Address> Address { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
+
     }
 }
