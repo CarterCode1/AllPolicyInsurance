@@ -33,7 +33,7 @@ namespace AllPolicyInsurance.DataLayer
 
         public async Task<IList<InsurancePolicy>> GetPolicies()
         {
-            return await _dbContext.InsurancePolicies.Include(p => p.Vehicle).
+            return await _dbContext.InsurancePolicies.Include(p => p.Vehicles).
                 Include(p => p.Address)
                 .ToListAsync();
         }
@@ -41,7 +41,7 @@ namespace AllPolicyInsurance.DataLayer
         public async Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)
         {
             return await _dbContext.InsurancePolicies
-                .Include(x => x.Vehicle)
+                .Include(x => x.Vehicles)
                 .Include(y => y.Address)
                 .Where(p=>p.DriversLicenseNumber == liscenseNumber)
                 .ToListAsync();
@@ -50,7 +50,7 @@ namespace AllPolicyInsurance.DataLayer
         public async Task<InsurancePolicy> GetPolicyById(int id)
         {
             return await _dbContext.InsurancePolicies
-                .Include(x => x.Vehicle)
+                .Include(x => x.Vehicles)
                 .Include(y => y.Address)
                 .FirstOrDefaultAsync(p => p.PolicyId == id);
         }

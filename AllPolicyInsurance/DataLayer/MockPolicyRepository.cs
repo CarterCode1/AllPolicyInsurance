@@ -14,13 +14,13 @@ namespace AllPolicyInsurance.DataLayer
         {
             new InsurancePolicy()
             {
-                Id = Guid.NewGuid(),
                 PolicyId = 1234,
                 EffectiveDate = DateTime.Now,
                 FirstName = "Joe",
                 LastName = "Burrow",
                 DriversLicenseNumber = "1234567",
-                Vehicle = new Vehicle() { Year = 2020, Make ="Tesla", Model="Model Y"},
+
+                //Vehicles.Add( new Vehicle() { Year = 2020, Make ="Tesla", Model="Model Y"} ),
 
                 Address = new Address() { City ="Cincinatti", Street = "123 Main St", State="OH",PostalCode ="45215"},
                 ExpirationDate = DateTime.Now.AddYears(4),
@@ -29,13 +29,12 @@ namespace AllPolicyInsurance.DataLayer
 
             new InsurancePolicy()
             {
-                Id = Guid.NewGuid(),
                 PolicyId = 8888123,
                 EffectiveDate = DateTime.Now,
                 FirstName = "Ja'Marr",
                 LastName = "Chase",
                 DriversLicenseNumber = "7654321",
-                Vehicle = new Vehicle() { Year = 2022, Make ="Porsche", Model="Macan"},
+               //Vehicle = new Vehicle() { Year = 2022, Make ="Porsche", Model="Macan"},
 
                 Address = new Address() { City ="Cincinatti", Street = "456 Main St", State="OH",PostalCode ="45215"},
                 ExpirationDate = DateTime.Now.AddYears(4),

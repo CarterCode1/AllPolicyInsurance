@@ -21,11 +21,16 @@ namespace AllPolicyInsurance.Migrations
 
             modelBuilder.Entity("AllPolicyInsurance.Models.Address", b =>
                 {
-                    b.Property<byte>("AddressId")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("AddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("InsurancePolicyId")
+                        .HasColumnType("int");
 
                     b.Property<string>("PostalCode")
                         .HasColumnType("nvarchar(max)");
@@ -38,101 +43,116 @@ namespace AllPolicyInsurance.Migrations
 
                     b.HasKey("AddressId");
 
+                    b.HasIndex("InsurancePolicyId")
+                        .IsUnique();
+
                     b.ToTable("Address");
 
                     b.HasData(
                         new
                         {
-                            AddressId = (byte)1,
+                            AddressId = 1,
                             City = "Cincinatti",
+                            InsurancePolicyId = 581718,
                             PostalCode = "45215",
                             State = "OH",
                             Street = "123 Main St"
                         },
                         new
                         {
-                            AddressId = (byte)2,
+                            AddressId = 2,
                             City = "Cincinatti",
+                            InsurancePolicyId = 573055,
                             PostalCode = "45203",
                             State = "OH",
                             Street = "77 Elm Avenue"
                         },
                         new
                         {
-                            AddressId = (byte)3,
+                            AddressId = 3,
                             City = "Las Vegas",
+                            InsurancePolicyId = 418377,
                             PostalCode = "89105",
                             State = "NV",
                             Street = "702 Flamingo Rd"
                         },
                         new
                         {
-                            AddressId = (byte)4,
+                            AddressId = 4,
                             City = "Henderson",
+                            InsurancePolicyId = 148906,
                             PostalCode = "89119",
                             State = "NV",
                             Street = "21 Tropicana Ave"
                         },
                         new
                         {
-                            AddressId = (byte)5,
+                            AddressId = 5,
                             City = "San Fransisco",
+                            InsurancePolicyId = 823615,
                             PostalCode = "94117",
                             State = "CA",
                             Street = "88 Haight St"
                         },
                         new
                         {
-                            AddressId = (byte)6,
+                            AddressId = 6,
                             City = "San Fransisco",
+                            InsurancePolicyId = 332372,
                             PostalCode = "94117",
                             State = "CA",
                             Street = "420 Ashbury"
                         },
                         new
                         {
-                            AddressId = (byte)7,
+                            AddressId = 7,
                             City = "Oakland",
+                            InsurancePolicyId = 539379,
                             PostalCode = "94604",
                             State = "CA",
                             Street = "570 Pharcyde Lane"
                         },
                         new
                         {
-                            AddressId = (byte)8,
+                            AddressId = 8,
                             City = "Oakland",
+                            InsurancePolicyId = 949164,
                             PostalCode = "94616",
                             State = "CA",
                             Street = "E. 40 Major Way "
                         },
                         new
                         {
-                            AddressId = (byte)9,
+                            AddressId = 9,
                             City = "Los Angeles",
+                            InsurancePolicyId = 723592,
                             PostalCode = "90210",
                             State = "CA",
                             Street = "88 Pacific Overlook Blvd"
                         },
                         new
                         {
-                            AddressId = (byte)10,
+                            AddressId = 10,
                             City = "Newport",
+                            InsurancePolicyId = 493847,
                             PostalCode = "90004",
                             State = "CA",
                             Street = "8 Mamba Street"
                         },
                         new
                         {
-                            AddressId = (byte)11,
+                            AddressId = 11,
                             City = "Brooklyn",
+                            InsurancePolicyId = 609698,
                             PostalCode = "11211",
                             State = "NY",
                             Street = "123 Fulton Street"
                         },
                         new
                         {
-                            AddressId = (byte)12,
+                            AddressId = 12,
                             City = "Brooklyn",
+                            InsurancePolicyId = 103575,
                             PostalCode = "11206",
                             State = "NY",
                             Street = "1120 Flatbush Ave "
@@ -141,12 +161,10 @@ namespace AllPolicyInsurance.Migrations
 
             modelBuilder.Entity("AllPolicyInsurance.Models.InsurancePolicy", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("PolicyId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<byte>("AddressId")
-                        .HasColumnType("tinyint");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DriversLicenseNumber")
                         .HasColumnType("nvarchar(max)");
@@ -163,188 +181,145 @@ namespace AllPolicyInsurance.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PolicyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<decimal>("PremiumPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<byte>("VehicleId")
-                        .HasColumnType("tinyint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddressId");
-
-                    b.HasIndex("VehicleId");
+                    b.HasKey("PolicyId");
 
                     b.ToTable("InsurancePolicies");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9ba575e0-4364-49f2-8a24-301f871de0a1"),
-                            AddressId = (byte)1,
-                            DriversLicenseNumber = "05012816",
-                            EffectiveDate = new DateTime(2022, 1, 13, 16, 48, 43, 352, DateTimeKind.Local).AddTicks(3831),
-                            ExpirationDate = new DateTime(2024, 2, 12, 16, 48, 43, 354, DateTimeKind.Local).AddTicks(9059),
+                            PolicyId = 581718,
+                            DriversLicenseNumber = "80160020",
+                            EffectiveDate = new DateTime(2022, 1, 14, 14, 35, 52, 466, DateTimeKind.Local).AddTicks(3765),
+                            ExpirationDate = new DateTime(2024, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(373),
                             FirstName = "Joe",
                             LastName = "Burrow",
-                            PolicyId = 370600,
-                            PremiumPrice = 350.0m,
-                            VehicleId = (byte)1
+                            PremiumPrice = 350.0m
                         },
                         new
                         {
-                            Id = new Guid("9cbf58ab-3142-464b-a25d-5db51520972f"),
-                            AddressId = (byte)2,
-                            DriversLicenseNumber = "58143643",
-                            EffectiveDate = new DateTime(2021, 4, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1226),
-                            ExpirationDate = new DateTime(2025, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1244),
+                            PolicyId = 573055,
+                            DriversLicenseNumber = "76286605",
+                            EffectiveDate = new DateTime(2021, 4, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2111),
+                            ExpirationDate = new DateTime(2025, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2128),
                             FirstName = "Ja'Marr",
                             LastName = "Chase",
-                            PolicyId = 506435,
-                            PremiumPrice = 225.0m,
-                            VehicleId = (byte)2
+                            PremiumPrice = 225.0m
                         },
                         new
                         {
-                            Id = new Guid("b70062b6-56ab-4374-98fd-9261e1b139c7"),
-                            AddressId = (byte)3,
-                            DriversLicenseNumber = "88416272",
-                            EffectiveDate = new DateTime(2014, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1259),
-                            ExpirationDate = new DateTime(2018, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1261),
+                            PolicyId = 418377,
+                            DriversLicenseNumber = "63919800",
+                            EffectiveDate = new DateTime(2014, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2143),
+                            ExpirationDate = new DateTime(2018, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2145),
                             FirstName = "Mark",
                             LastName = "Stone",
-                            PolicyId = 648210,
-                            PremiumPrice = 145.0m,
-                            VehicleId = (byte)3
+                            PremiumPrice = 145.0m
                         },
                         new
                         {
-                            Id = new Guid("5923aa15-958e-46cf-933b-5d7d7dabe023"),
-                            AddressId = (byte)4,
-                            DriversLicenseNumber = "67530787",
-                            EffectiveDate = new DateTime(2019, 11, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1267),
-                            ExpirationDate = new DateTime(2021, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1269),
+                            PolicyId = 148906,
+                            DriversLicenseNumber = "60458528",
+                            EffectiveDate = new DateTime(2019, 11, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2150),
+                            ExpirationDate = new DateTime(2021, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2152),
                             FirstName = "Larry",
                             LastName = "Johnson",
-                            PolicyId = 884759,
-                            PremiumPrice = 225.0m,
-                            VehicleId = (byte)4
+                            PremiumPrice = 225.0m
                         },
                         new
                         {
-                            Id = new Guid("00390dae-ab04-435a-8d03-d1d667e0913c"),
-                            AddressId = (byte)5,
-                            DriversLicenseNumber = "82232261",
-                            EffectiveDate = new DateTime(2021, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1273),
-                            ExpirationDate = new DateTime(2025, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1275),
+                            PolicyId = 823615,
+                            DriversLicenseNumber = "86985124",
+                            EffectiveDate = new DateTime(2021, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2155),
+                            ExpirationDate = new DateTime(2025, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2157),
                             FirstName = "Steph",
                             LastName = "Curry",
-                            PolicyId = 850485,
-                            PremiumPrice = 315.0m,
-                            VehicleId = (byte)5
+                            PremiumPrice = 315.0m
                         },
                         new
                         {
-                            Id = new Guid("21985b7d-6bdf-48c0-90dd-84211b020eca"),
-                            AddressId = (byte)6,
-                            DriversLicenseNumber = "58677291",
-                            EffectiveDate = new DateTime(2022, 1, 13, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1279),
-                            ExpirationDate = new DateTime(2027, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1281),
+                            PolicyId = 332372,
+                            DriversLicenseNumber = "12713028",
+                            EffectiveDate = new DateTime(2022, 1, 14, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2161),
+                            ExpirationDate = new DateTime(2027, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2163),
                             FirstName = "Draymond",
                             LastName = "Green",
-                            PolicyId = 340004,
-                            PremiumPrice = 200.0m,
-                            VehicleId = (byte)6
+                            PremiumPrice = 200.0m
                         },
                         new
                         {
-                            Id = new Guid("0f2d629d-9382-4892-bb00-66fb1b0cd02a"),
-                            AddressId = (byte)7,
-                            DriversLicenseNumber = "58401113",
-                            EffectiveDate = new DateTime(2014, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1286),
-                            ExpirationDate = new DateTime(2020, 6, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1288),
+                            PolicyId = 539379,
+                            DriversLicenseNumber = "17282181",
+                            EffectiveDate = new DateTime(2014, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2242),
+                            ExpirationDate = new DateTime(2020, 6, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2245),
                             FirstName = "Andrew",
                             LastName = "Wiggins",
-                            PolicyId = 485716,
-                            PremiumPrice = 225.0m,
-                            VehicleId = (byte)7
+                            PremiumPrice = 225.0m
                         },
                         new
                         {
-                            Id = new Guid("e347c6cf-66a2-4598-8962-e8cc01c4b49b"),
-                            AddressId = (byte)8,
-                            DriversLicenseNumber = "23047374",
-                            EffectiveDate = new DateTime(2020, 11, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1298),
-                            ExpirationDate = new DateTime(2025, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1300),
+                            PolicyId = 949164,
+                            DriversLicenseNumber = "10111757",
+                            EffectiveDate = new DateTime(2020, 11, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2249),
+                            ExpirationDate = new DateTime(2025, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2251),
                             FirstName = "Debo",
                             LastName = "Samuel",
-                            PolicyId = 344132,
-                            PremiumPrice = 345.0m,
-                            VehicleId = (byte)8
+                            PremiumPrice = 345.0m
                         },
                         new
                         {
-                            Id = new Guid("865369c4-b0aa-4181-8351-a0216085b9ec"),
-                            AddressId = (byte)9,
-                            DriversLicenseNumber = "50028651",
-                            EffectiveDate = new DateTime(2016, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1305),
-                            ExpirationDate = new DateTime(2021, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1307),
+                            PolicyId = 723592,
+                            DriversLicenseNumber = "08007355",
+                            EffectiveDate = new DateTime(2016, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2255),
+                            ExpirationDate = new DateTime(2021, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2257),
                             FirstName = "Cooper",
                             LastName = "Kupp",
-                            PolicyId = 965105,
-                            PremiumPrice = 65.0m,
-                            VehicleId = (byte)9
+                            PremiumPrice = 65.0m
                         },
                         new
                         {
-                            Id = new Guid("e166e525-e2b0-4faf-b0fb-272265b0b927"),
-                            AddressId = (byte)10,
-                            DriversLicenseNumber = "39527559",
-                            EffectiveDate = new DateTime(2016, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1312),
-                            ExpirationDate = new DateTime(2021, 2, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1314),
+                            PolicyId = 493847,
+                            DriversLicenseNumber = "61527897",
+                            EffectiveDate = new DateTime(2016, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2260),
+                            ExpirationDate = new DateTime(2021, 2, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2262),
                             FirstName = "Kobe",
                             LastName = "Bryant",
-                            PolicyId = 140236,
-                            PremiumPrice = 65.0m,
-                            VehicleId = (byte)10
+                            PremiumPrice = 65.0m
                         },
                         new
                         {
-                            Id = new Guid("eb1d4a1d-cf7d-44b4-98b7-3f4ba75e6c16"),
-                            AddressId = (byte)11,
-                            DriversLicenseNumber = "15182572",
-                            EffectiveDate = new DateTime(2022, 1, 28, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1318),
-                            ExpirationDate = new DateTime(2025, 10, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1320),
+                            PolicyId = 609698,
+                            DriversLicenseNumber = "82404778",
+                            EffectiveDate = new DateTime(2022, 1, 29, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2266),
+                            ExpirationDate = new DateTime(2025, 10, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2267),
                             FirstName = "Kyrie",
                             LastName = "Irving",
-                            PolicyId = 766703,
-                            PremiumPrice = 311.0m,
-                            VehicleId = (byte)11
+                            PremiumPrice = 311.0m
                         },
                         new
                         {
-                            Id = new Guid("684caae3-2647-4554-a6d5-6a9b1c590a3d"),
-                            AddressId = (byte)12,
-                            DriversLicenseNumber = "06884140",
-                            EffectiveDate = new DateTime(2020, 9, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1324),
-                            ExpirationDate = new DateTime(2024, 8, 12, 16, 48, 43, 355, DateTimeKind.Local).AddTicks(1327),
+                            PolicyId = 103575,
+                            DriversLicenseNumber = "82302017",
+                            EffectiveDate = new DateTime(2020, 9, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2271),
+                            ExpirationDate = new DateTime(2024, 8, 13, 14, 35, 52, 469, DateTimeKind.Local).AddTicks(2273),
                             FirstName = "Kevin",
                             LastName = "Durant",
-                            PolicyId = 962573,
-                            PremiumPrice = 420.0m,
-                            VehicleId = (byte)12
+                            PremiumPrice = 420.0m
                         });
                 });
 
             modelBuilder.Entity("AllPolicyInsurance.Models.Vehicle", b =>
                 {
-                    b.Property<byte>("VehicleId")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("VehicleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("InsurancePolicyId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Make")
                         .HasColumnType("nvarchar(max)");
@@ -357,112 +332,136 @@ namespace AllPolicyInsurance.Migrations
 
                     b.HasKey("VehicleId");
 
+                    b.HasIndex("InsurancePolicyId");
+
                     b.ToTable("Vehicles");
 
                     b.HasData(
                         new
                         {
-                            VehicleId = (byte)1,
+                            VehicleId = 1,
+                            InsurancePolicyId = 581718,
                             Make = "Tesla",
                             Model = "Model X",
                             Year = 2020
                         },
                         new
                         {
-                            VehicleId = (byte)2,
+                            VehicleId = 2,
+                            InsurancePolicyId = 573055,
                             Make = "Porsche",
                             Model = "Macan",
                             Year = 2022
                         },
                         new
                         {
-                            VehicleId = (byte)3,
+                            VehicleId = 3,
+                            InsurancePolicyId = 418377,
                             Make = "Ford",
                             Model = "Mustang",
                             Year = 1966
                         },
                         new
                         {
-                            VehicleId = (byte)4,
+                            VehicleId = 4,
+                            InsurancePolicyId = 148906,
                             Make = "Dodge",
                             Model = "Viper",
                             Year = 1995
                         },
                         new
                         {
-                            VehicleId = (byte)5,
+                            VehicleId = 5,
+                            InsurancePolicyId = 823615,
                             Make = "Mercedes-benz",
                             Model = "SL-63",
                             Year = 2019
                         },
                         new
                         {
-                            VehicleId = (byte)6,
+                            VehicleId = 6,
+                            InsurancePolicyId = 332372,
                             Make = "Oldsmobile",
                             Model = "Cutlass",
                             Year = 1967
                         },
                         new
                         {
-                            VehicleId = (byte)7,
+                            VehicleId = 7,
+                            InsurancePolicyId = 539379,
                             Make = "Shelby",
                             Model = "G.T. 350",
                             Year = 2020
                         },
                         new
                         {
-                            VehicleId = (byte)8,
+                            VehicleId = 8,
+                            InsurancePolicyId = 949164,
                             Make = "BMW",
                             Model = "M6",
                             Year = 2021
                         },
                         new
                         {
-                            VehicleId = (byte)9,
+                            VehicleId = 9,
+                            InsurancePolicyId = 723592,
                             Make = "Chevrolet",
                             Model = "Tahoe",
                             Year = 1993
                         },
                         new
                         {
-                            VehicleId = (byte)10,
+                            VehicleId = 10,
+                            InsurancePolicyId = 493847,
                             Make = "McLaren",
                             Model = "F1",
                             Year = 2020
                         },
                         new
                         {
-                            VehicleId = (byte)11,
+                            VehicleId = 11,
+                            InsurancePolicyId = 609698,
                             Make = "Lamborghini",
                             Model = "Huracan",
                             Year = 2022
                         },
                         new
                         {
-                            VehicleId = (byte)12,
+                            VehicleId = 12,
+                            InsurancePolicyId = 103575,
                             Make = "Tesla",
                             Model = "Model X",
                             Year = 2021
                         });
                 });
 
+            modelBuilder.Entity("AllPolicyInsurance.Models.Address", b =>
+                {
+                    b.HasOne("AllPolicyInsurance.Models.InsurancePolicy", "InsurancePolicy")
+                        .WithOne("Address")
+                        .HasForeignKey("AllPolicyInsurance.Models.Address", "InsurancePolicyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("InsurancePolicy");
+                });
+
+            modelBuilder.Entity("AllPolicyInsurance.Models.Vehicle", b =>
+                {
+                    b.HasOne("AllPolicyInsurance.Models.InsurancePolicy", "InsurancePolicy")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("InsurancePolicyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("InsurancePolicy");
+                });
+
             modelBuilder.Entity("AllPolicyInsurance.Models.InsurancePolicy", b =>
                 {
-                    b.HasOne("AllPolicyInsurance.Models.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AllPolicyInsurance.Models.Vehicle", "Vehicle")
-                        .WithMany()
-                        .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Address");
 
-                    b.Navigation("Vehicle");
+                    b.Navigation("Vehicles");
                 });
 #pragma warning restore 612, 618
         }

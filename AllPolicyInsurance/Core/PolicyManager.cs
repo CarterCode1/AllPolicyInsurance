@@ -3,6 +3,7 @@ using AllPolicyInsurance.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using AllPolicyInsurance.DataLayer;
 
 namespace AllPolicyInsurance.Core
 {
@@ -10,37 +11,39 @@ namespace AllPolicyInsurance.Core
     {
 
         private readonly ILogger<PolicyManager> _logger;
-        private IPolicyManager _policyManager;
+        private IPolicyRepository _policyRepository;
 
-        public PolicyManager(ILogger<PolicyManager> logger, IPolicyManager policyManager, IMessageService messageService)
+        public PolicyManager(ILogger<PolicyManager> logger, IPolicyRepository policyRepository, IMessageService messageService)
         {
             _logger = logger;
-            _policyManager = policyManager;
+            _policyRepository = policyRepository;
         }
 
-        public Task<InsurancePolicy> CreateInsurancePolicy(PolicyDTO policyDTO)
+        public async Task<InsurancePolicy> CreateInsurancePolicy(PolicyDTO policyDTO)
         {
-            throw new System.NotImplementedException();
+            var createdPolicy = await _policyRepository.CreateInsurancePolicy(policyDTO);
+            return createdPolicy;
+
         }
 
         public Task DeletePolicy(InsurancePolicy policy)
         {
-            throw new System.NotImplementedException();
+            return _policyRepository.DeletePolicy(policy);
         }
 
-        public Task<IList<InsurancePolicy>> GetPolicies()
+        public async Task<IList<InsurancePolicy>> GetPolicies()
         {
-            throw new System.NotImplementedException();
+            return await _policyRepository.GetPolicies();
         }
 
-        public Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)
+        public async Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)
         {
-            throw new System.NotImplementedException();
+            return await _policyRepository.GetPoliciesByDriversLiscense(liscenseNumber);
         }
 
-        public Task<InsurancePolicy> GetPolicyById(int id)
+        public async Task<InsurancePolicy> GetPolicyById(int id)
         {
-            throw new System.NotImplementedException();
+            return await _policyRepository.GetPolicyById(id);
         }
     }
 }

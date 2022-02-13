@@ -60,7 +60,7 @@ namespace AllPolicyInsurance.Controllers
         public async Task<IActionResult> CreatePolicy([FromBody] PolicyDTO policy)
         {
              var createdPolicy = await _policyManager.CreateInsurancePolicy(policy);
-            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + createdPolicy.Id, createdPolicy);
+            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + createdPolicy.PolicyId, createdPolicy);
         }
     }
 }
