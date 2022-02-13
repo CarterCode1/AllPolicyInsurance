@@ -3,7 +3,7 @@ using AllPolicyInsurance.Models;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
- 
+using System.Threading.Tasks;
 
 namespace AllPolicyInsurance.DataLayer
 {
@@ -16,34 +16,34 @@ namespace AllPolicyInsurance.DataLayer
         {
             _dbContext = ctx;
         }
-        public InsurancePolicy CreateInsurancePolicy(PolicyDTO policyDTO)
+        public async Task<InsurancePolicy> CreateInsurancePolicy(PolicyDTO policyDTO)
         {
             var policy = new InsurancePolicy(policyDTO);
   
             _dbContext.InsurancePolicies.Add(policy);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
 
             return policy;
         }
 
-        public void DeletePolicy(InsurancePolicy policy)
+        public Task DeletePolicy(InsurancePolicy policy)
         {
             throw new System.NotImplementedException();
         }
 
-        public IList<InsurancePolicy> GetPolicies()
+        public async Task<IList<InsurancePolicy>> GetPolicies()
         {
-            return _dbContext.InsurancePolicies.Include(p => p.Vehicle).
+            return await _dbContext.InsurancePolicies.Include(p => p.Vehicle).
                 Include(p => p.Address).
-                ToList();
+                ToListAsync();
         }
 
-        public IList<InsurancePolicy> GetPoliciesByDriversLiscense(string liscenseNumber)
+        public async Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)
         {
             throw new System.NotImplementedException();
         }
 
-        public InsurancePolicy GetPolicyById(int id)
+        public async Task<InsurancePolicy> GetPolicyById(int id)
         {
             throw new System.NotImplementedException();
         }

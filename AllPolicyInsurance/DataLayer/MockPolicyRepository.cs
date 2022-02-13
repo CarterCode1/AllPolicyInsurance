@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using AllPolicyInsurance.Dto;
 
 namespace AllPolicyInsurance.DataLayer
@@ -42,31 +43,33 @@ namespace AllPolicyInsurance.DataLayer
             },
         };
 
-        public IList<InsurancePolicy> GetPolicies()
+        public Task<IList<InsurancePolicy>> GetPolicies()
         {
-            return _insurancePolicies;
+            return Task.FromResult< IList <InsurancePolicy>>( _insurancePolicies);
         }
-        public InsurancePolicy CreateInsurancePolicy(PolicyDTO policy)
+        public  Task<InsurancePolicy> CreateInsurancePolicy(PolicyDTO policy)
         {
-            var newInsurancePolicy = new InsurancePolicy(policy);
+            var newInsurancePolicy  =  new InsurancePolicy(policy);
             _insurancePolicies.Add(newInsurancePolicy);
 
-            return newInsurancePolicy;
+            return Task.FromResult<InsurancePolicy> ( newInsurancePolicy);
         }
 
-        public void DeletePolicy(InsurancePolicy policy)
+        public Task DeletePolicy(InsurancePolicy policy)
         {
             throw new System.NotImplementedException();
         }
 
-        public InsurancePolicy GetPolicyById(int id)
+        public Task<InsurancePolicy> GetPolicyById(int id)
         {
-            return _insurancePolicies.SingleOrDefault(x => x.PolicyId == id);
+            return Task.FromResult<InsurancePolicy>(
+                _insurancePolicies.SingleOrDefault(x => x.PolicyId == id));
         }
 
-        public IList<InsurancePolicy> GetPoliciesByDriversLiscense(string liscenseNumber)
+        public  Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)
         {
-            return _insurancePolicies.Where(p => p.DriversLicenseNumber == liscenseNumber).ToList();
+            return Task.FromResult<IList<InsurancePolicy>>(
+                _insurancePolicies.Where(p => p.DriversLicenseNumber == liscenseNumber).ToList());
         }
     }
 }
