@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AllPolicyInsurance.Models;
 using AllPolicyInsurance.DataLayer;
 using AllPolicyInsurance.Dto;
+using AllPolicyInsurance.Core;
 
 namespace AllPolicyInsurance.Controllers
 {
@@ -15,25 +16,25 @@ namespace AllPolicyInsurance.Controllers
     public class PolicyController : ControllerBase
     {
         private readonly ILogger<PolicyController> _logger;
-        private IPolicyRepository _policyRepository;
+        private IPolicyManager _policyManager;
 
-        public PolicyController(ILogger<PolicyController> logger, IPolicyRepository policyRepository)
+        public PolicyController(ILogger<PolicyController> logger, IPolicyManager policyManager)
         {
             _logger = logger;
-            _policyRepository = policyRepository;
+            _policyManager = policyManager;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetPolicies()
         {
-            var policies = await _policyRepository.GetPolicies();
+            var policies = await _policyManager.GetPolicies();
             return  Ok(policies);
         }
 
         [HttpGet("id/{id}")]
         public async Task<IActionResult> GetPoliciesById(int id)
         {
-            var policy = await _policyRepository.GetPolicyById(id);
+            var policy = await _policyManager.GetPolicyById(id);
 
             if (policy != null)
             {
@@ -45,7 +46,7 @@ namespace AllPolicyInsurance.Controllers
         [HttpGet("liscence/{liscence}")]
         public async Task<IActionResult> GetPoliciesByDriversLiscense(string liscence, string sortOrder , bool isExpired = false)
         {
-            var policy = await _policyRepository.GetPoliciesByDriversLiscense(liscence);
+            var policy = await _policyManager.GetPoliciesByDriversLiscense(liscence);
 
             if(policy.Any())
             {
@@ -58,7 +59,7 @@ namespace AllPolicyInsurance.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePolicy([FromBody] PolicyDTO policy)
         {
-             var createdPolicy = await _policyRepository.CreateInsurancePolicy(policy);
+             var createdPolicy = await _policyManager.CreateInsurancePolicy(policy);
             return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + createdPolicy.Id, createdPolicy);
         }
     }
