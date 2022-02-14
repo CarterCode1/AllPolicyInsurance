@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AllPolicyInsurance.Dto
 {
-    public class PolicyRequest
+    public class PolicyRequestDTO
     {
 
         public DateTime EffectiveDate { get; set; }
@@ -10,13 +11,10 @@ namespace AllPolicyInsurance.Dto
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string DriversLicenseNumber { get; set; }
-        public string VehicleModel { get; set; }
-        public string VehicleMake { get; set; }
-        public int VehicleYear { get; set; }
-        public string Street { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string PostalCode { get; set; }
         public decimal PremiumPrice { get; set; }
+        public ICollection<VehicleDTO> Vehicles { get; set; }
+
+        public AddressDTO Address { get; set; }
+
     }
 }

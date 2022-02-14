@@ -19,9 +19,9 @@ namespace AllPolicyInsurance.Core
             _policyRepository = policyRepository;
         }
 
-        public async Task<InsurancePolicy> CreateInsurancePolicy(PolicyRequest policyDTO)
+        public async Task<InsurancePolicy> CreateInsurancePolicy(InsurancePolicy insurancePolicy)
         {
-            var createdPolicy = await _policyRepository.CreateInsurancePolicy(policyDTO);
+            var createdPolicy = await _policyRepository.CreateInsurancePolicy(insurancePolicy);
             return createdPolicy;
 
         }

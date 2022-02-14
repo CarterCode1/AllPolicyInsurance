@@ -16,14 +16,13 @@ namespace AllPolicyInsurance.DataLayer
         {
             _dbContext = ctx;
         }
-        public async Task<InsurancePolicy> CreateInsurancePolicy(PolicyRequest policyDTO)
+        public async Task<InsurancePolicy> CreateInsurancePolicy(InsurancePolicy insurancePolicy)
         {
-            var policy = new InsurancePolicy(policyDTO);
   
-            _dbContext.InsurancePolicies.Add(policy);
+            _dbContext.InsurancePolicies.Add(insurancePolicy);
             await _dbContext.SaveChangesAsync();
 
-            return policy;
+            return insurancePolicy;
         }
 
         public Task DeletePolicy(InsurancePolicy policy)

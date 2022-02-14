@@ -10,6 +10,7 @@ namespace AllPolicyInsurance.Dto
             CreateMap<Address, AddressDTO>().ReverseMap();
             CreateMap<InsurancePolicy, PolicyDTO>();
             CreateMap<Vehicle, VehicleDTO>().ReverseMap();
+            CreateMap<PolicyRequestDTO, InsurancePolicy>().ReverseMap();
         }
     }
 }

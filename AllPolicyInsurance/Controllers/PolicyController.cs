@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AllPolicyInsurance.Dto;
 using AllPolicyInsurance.Core;
 using AutoMapper;
+using AllPolicyInsurance.Models;
 
 namespace AllPolicyInsurance.Controllers
 {
@@ -60,10 +61,15 @@ namespace AllPolicyInsurance.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreatePolicy([FromBody] PolicyRequest policy)
+        public async Task<IActionResult> CreatePolicy([FromBody] PolicyRequestDTO policyDTO)
         {
-             var createdPolicy = await _policyManager.CreateInsurancePolicy(policy);
-            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + createdPolicy.PolicyId, createdPolicy);
+
+            var insurancePolicy = _mapper.Map<InsurancePolicy>(policyDTO);
+
+            var createdPolicy = await _policyManager.CreateInsurancePolicy(insurancePolicy);
+            var createdPolicyDTO = _mapper.Map<PolicyDTO>(createdPolicy);
+
+            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + createdPolicyDTO.PolicyId, createdPolicyDTO);
         }
     }
 }
