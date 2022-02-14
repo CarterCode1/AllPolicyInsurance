@@ -10,8 +10,14 @@ namespace AllPolicyInsurance.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int VehicleId { get; set; }
 
-        public int Year { get; set; }
+        [Required]
+        [StringLength(4)]
+        public string Year { get; set; }
+
+        [Required]
         public string Model { get; set; }
+
+        [Required]
         public string Make { get; set; }
         
         public int InsurancePolicyId { get; set; }

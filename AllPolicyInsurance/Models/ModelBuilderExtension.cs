@@ -160,18 +160,18 @@ namespace AllPolicyInsurance.Models
             );
 
             modelBuilder.Entity<Vehicle>().HasData(
-                new Vehicle { VehicleId = 1, InsurancePolicyId = policyIdList[0], Year = 2020, Make = "Tesla", Model = "Model X" },
-                new Vehicle { VehicleId = 2, InsurancePolicyId = policyIdList[1], Year = 2022, Make = "Porsche", Model = "Macan" },
-                new Vehicle { VehicleId = 3, InsurancePolicyId = policyIdList[2],  Year = 1966, Make = "Ford", Model = "Mustang" },
-                new Vehicle { VehicleId = 4, InsurancePolicyId = policyIdList[3],  Year = 1995, Make = "Dodge", Model = "Viper" },
-                new Vehicle { VehicleId = 5, InsurancePolicyId = policyIdList[4],  Year = 2019, Make = "Mercedes-benz", Model = "SL-63" },
-                new Vehicle { VehicleId = 6, InsurancePolicyId = policyIdList[5],  Year = 1967, Make = "Oldsmobile", Model = "Cutlass" },
-                new Vehicle { VehicleId = 7, InsurancePolicyId = policyIdList[6],  Year = 2020, Make = "Shelby", Model = "G.T. 350" },
-                new Vehicle { VehicleId = 8, InsurancePolicyId = policyIdList[7],  Year = 2021, Make = "BMW", Model = "M6" },
-                new Vehicle { VehicleId = 9, InsurancePolicyId = policyIdList[8],  Year = 1993, Make = "Chevrolet", Model = "Tahoe" },
-                new Vehicle { VehicleId = 10, InsurancePolicyId = policyIdList[9],  Year = 2020, Make = "McLaren", Model = "F1" },
-                new Vehicle { VehicleId = 11, InsurancePolicyId = policyIdList[10],  Year = 2022, Make = "Lamborghini", Model = "Huracan" },
-                new Vehicle { VehicleId = 12, InsurancePolicyId = policyIdList[11],  Year = 2021, Make = "Tesla", Model = "Model X" }
+                new Vehicle { VehicleId = 1, InsurancePolicyId = policyIdList[0], Year = "2020", Make = "Tesla", Model = "Model X" },
+                new Vehicle { VehicleId = 2, InsurancePolicyId = policyIdList[1], Year = "2022", Make = "Porsche", Model = "Macan" },
+                new Vehicle { VehicleId = 3, InsurancePolicyId = policyIdList[2],  Year = "1966", Make = "Ford", Model = "Mustang" },
+                new Vehicle { VehicleId = 4, InsurancePolicyId = policyIdList[3],  Year = "1995", Make = "Dodge", Model = "Viper" },
+                new Vehicle { VehicleId = 5, InsurancePolicyId = policyIdList[4],  Year = "2019", Make = "Mercedes-benz", Model = "SL-63" },
+                new Vehicle { VehicleId = 6, InsurancePolicyId = policyIdList[5],  Year = "1967", Make = "Oldsmobile", Model = "Cutlass" },
+                new Vehicle { VehicleId = 7, InsurancePolicyId = policyIdList[6],  Year = "2020", Make = "Shelby", Model = "G.T. 350" },
+                new Vehicle { VehicleId = 8, InsurancePolicyId = policyIdList[7],  Year = "2021", Make = "BMW", Model = "M6" },
+                new Vehicle { VehicleId = 9, InsurancePolicyId = policyIdList[8],  Year = "1993", Make = "Chevrolet", Model = "Tahoe" },
+                new Vehicle { VehicleId = 10, InsurancePolicyId = policyIdList[9],  Year = "2020", Make = "McLaren", Model = "F1" },
+                new Vehicle { VehicleId = 11, InsurancePolicyId = policyIdList[10],  Year = "2022", Make = "Lamborghini", Model = "Huracan" },
+                new Vehicle { VehicleId = 12, InsurancePolicyId = policyIdList[11],  Year = "2021", Make = "Tesla", Model = "Model X" }
                 );  
         }
     }

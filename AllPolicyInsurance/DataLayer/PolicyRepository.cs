@@ -32,27 +32,33 @@ namespace AllPolicyInsurance.DataLayer
 
         public async Task<IList<InsurancePolicy>> GetPolicies()
         {
-            return await  _dbContext.InsurancePolicies
+             var policies = await  _dbContext.InsurancePolicies
                     .Include(x => x.Vehicles)
                     .Include(y => y.Address)
                     .ToListAsync();
+
+            return policies;
         }
 
         public async Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)
         {
-            return await _dbContext.InsurancePolicies
+            var policies = await _dbContext.InsurancePolicies
                 .Include(x => x.Vehicles)
                 .Include(y => y.Address)
                 .Where(p=>p.DriversLicenseNumber == liscenseNumber)
                 .ToListAsync();
+
+            return policies;
         }
 
         public async Task<InsurancePolicy> GetPolicyById(int id)
         {
-            return await _dbContext.InsurancePolicies
+           var policy =  await _dbContext.InsurancePolicies
                 .Include(x => x.Vehicles)
                 .Include(y => y.Address)
                 .FirstOrDefaultAsync(p => p.PolicyId == id);
+
+            return policy;
         }
     }
 }

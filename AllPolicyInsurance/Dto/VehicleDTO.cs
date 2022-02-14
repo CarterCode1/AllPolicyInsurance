@@ -1,9 +1,19 @@
-﻿namespace AllPolicyInsurance.Dto
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace AllPolicyInsurance.Dto
 {
     public class VehicleDTO
     {
-        public int Year { get; set; }
+        [Required]
+        [Range(0, int.MaxValue, ErrorMessage = "Invalid {0}. Numbers only required")]
+        [StringLength(4, ErrorMessage = "Invalid {0} format")]
+        public string Year { get; set; }
+        
+        [Required]
         public string Model { get; set; }
+
+        [Required]
         public string Make { get; set; }
     }
 }

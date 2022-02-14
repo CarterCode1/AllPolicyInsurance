@@ -9,9 +9,19 @@ namespace AllPolicyInsurance.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AddressId { get; set; }
+
+        [Required]
         public string Street { get; set; }
+
+        [Required]
         public string City { get; set; }
+
+        [Required]
+        [StringLength(2)]
         public string State { get; set; }
+
+        [Required]
+        [StringLength(5)]
         public string PostalCode { get; set; }
 
         public int InsurancePolicyId { get; set; }
