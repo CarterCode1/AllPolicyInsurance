@@ -46,7 +46,7 @@ namespace AllPolicyInsurance.DataLayer
         {
             return Task.FromResult< IList <InsurancePolicy>>( _insurancePolicies);
         }
-        public  Task<InsurancePolicy> CreateInsurancePolicy(PolicyDTO policy)
+        public  Task<InsurancePolicy> CreateInsurancePolicy(PolicyRequest policy)
         {
             var newInsurancePolicy  =  new InsurancePolicy(policy);
             _insurancePolicies.Add(newInsurancePolicy);

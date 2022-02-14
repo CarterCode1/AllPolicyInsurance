@@ -11,7 +11,7 @@ namespace AllPolicyInsurance.Core
         Task<IList<InsurancePolicy>> GetPolicies();
         Task<InsurancePolicy> GetPolicyById(int id);
         Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber);
-        Task<InsurancePolicy> CreateInsurancePolicy(PolicyDTO policyDTO);
+        Task<InsurancePolicy> CreateInsurancePolicy(PolicyRequest policyDTO);
         Task DeletePolicy(InsurancePolicy policy);
     }
 }

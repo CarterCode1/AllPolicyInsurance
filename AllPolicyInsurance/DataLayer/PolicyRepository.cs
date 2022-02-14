@@ -16,7 +16,7 @@ namespace AllPolicyInsurance.DataLayer
         {
             _dbContext = ctx;
         }
-        public async Task<InsurancePolicy> CreateInsurancePolicy(PolicyDTO policyDTO)
+        public async Task<InsurancePolicy> CreateInsurancePolicy(PolicyRequest policyDTO)
         {
             var policy = new InsurancePolicy(policyDTO);
   
@@ -33,9 +33,10 @@ namespace AllPolicyInsurance.DataLayer
 
         public async Task<IList<InsurancePolicy>> GetPolicies()
         {
-            return await _dbContext.InsurancePolicies.Include(p => p.Vehicles).
-                Include(p => p.Address)
-                .ToListAsync();
+            return await  _dbContext.InsurancePolicies
+                    .Include(x => x.Vehicles)
+                    .Include(y => y.Address)
+                    .ToListAsync();
         }
 
         public async Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)

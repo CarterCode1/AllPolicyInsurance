@@ -1,302 +1,266 @@
 [
-  {
-    "Id": "e166e525-e2b0-4faf-b0fb-272265b0b927",
-    "PolicyId": 140236,
-    "EffectiveDate": "2016-02-12T16:48:43.3551312",
-    "FirstName": "Kobe",
-    "LastName": "Bryant",
-    "DriversLicenseNumber": "39527559",
-    "VehicleId": 10,
-    "Vehicle": {
-      "VehicleId": 10,
-      "Year": 2020,
-      "Model": "F1",
-      "Make": "McLaren"
+    {
+      "PolicyId": 124993,
+      "EffectiveDate": "2016-02-13T19:52:17.2430552",
+      "ExpirationDate": "2021-02-13T19:52:17.2430554",
+      "FirstName": "Cooper",
+      "LastName": "Kupp",
+      "DriversLicenseNumber": "95852150",
+      "PremiumPrice": 65,
+      "Vehicles": [
+        {
+          "Year": 1993,
+          "Model": "Tahoe",
+          "Make": "Chevrolet"
+        }
+      ],
+      "Address": {
+        "Street": "88 Pacific Overlook Blvd",
+        "City": "Los Angeles",
+        "State": "CA",
+        "PostalCode": "90210"
+      }
     },
-    "AddressId": 10,
-    "Address": {
-      "AddressId": 10,
-      "Street": "8 Mamba Street",
-      "City": "Newport",
-      "State": "CA",
-      "PostalCode": "90004"
+    {
+      "PolicyId": 256040,
+      "EffectiveDate": "2022-01-14T19:52:17.2430535",
+      "ExpirationDate": "2027-02-13T19:52:17.2430538",
+      "FirstName": "Draymond",
+      "LastName": "Green",
+      "DriversLicenseNumber": "72751840",
+      "PremiumPrice": 200,
+      "Vehicles": [
+        {
+          "Year": 1967,
+          "Model": "Cutlass",
+          "Make": "Oldsmobile"
+        }
+      ],
+      "Address": {
+        "Street": "420 Ashbury",
+        "City": "San Fransisco",
+        "State": "CA",
+        "PostalCode": "94117"
+      }
     },
-    "ExpirationDate": "2021-02-12T16:48:43.3551314",
-    "PremiumPrice": 65
-  },
-  {
-    "Id": "9ba575e0-4364-49f2-8a24-301f871de0a1",
-    "PolicyId": 370600,
-    "EffectiveDate": "2022-01-13T16:48:43.3523831",
-    "FirstName": "Joe",
-    "LastName": "Burrow",
-    "DriversLicenseNumber": "05012816",
-    "VehicleId": 1,
-    "Vehicle": {
-      "VehicleId": 1,
-      "Year": 2020,
-      "Model": "Model X",
-      "Make": "Tesla"
+    {
+      "PolicyId": 301276,
+      "EffectiveDate": "2016-02-13T19:52:17.2430557",
+      "ExpirationDate": "2021-02-13T19:52:17.2430559",
+      "FirstName": "Kobe",
+      "LastName": "Bryant",
+      "DriversLicenseNumber": "66274913",
+      "PremiumPrice": 65,
+      "Vehicles": [
+        {
+          "Year": 2020,
+          "Model": "F1",
+          "Make": "McLaren"
+        }
+      ],
+      "Address": {
+        "Street": "8 Mamba Street",
+        "City": "Newport",
+        "State": "CA",
+        "PostalCode": "90004"
+      }
     },
-    "AddressId": 1,
-    "Address": {
-      "AddressId": 1,
-      "Street": "123 Main St",
-      "City": "Cincinatti",
-      "State": "OH",
-      "PostalCode": "45215"
+    {
+      "PolicyId": 326399,
+      "EffectiveDate": "2021-02-13T19:52:17.2430528",
+      "ExpirationDate": "2025-02-13T19:52:17.2430531",
+      "FirstName": "Steph",
+      "LastName": "Curry",
+      "DriversLicenseNumber": "35467886",
+      "PremiumPrice": 315,
+      "Vehicles": [
+        {
+          "Year": 2019,
+          "Model": "SL-63",
+          "Make": "Mercedes-benz"
+        }
+      ],
+      "Address": {
+        "Street": "88 Haight St",
+        "City": "San Fransisco",
+        "State": "CA",
+        "PostalCode": "94117"
+      }
     },
-    "ExpirationDate": "2024-02-12T16:48:43.3549059",
-    "PremiumPrice": 350
-  },
-  {
-    "Id": "eb1d4a1d-cf7d-44b4-98b7-3f4ba75e6c16",
-    "PolicyId": 766703,
-    "EffectiveDate": "2022-01-28T16:48:43.3551318",
-    "FirstName": "Kyrie",
-    "LastName": "Irving",
-    "DriversLicenseNumber": "15182572",
-    "VehicleId": 11,
-    "Vehicle": {
-      "VehicleId": 11,
-      "Year": 2022,
-      "Model": "Huracan",
-      "Make": "Lamborghini"
+    {
+      "PolicyId": 377586,
+      "EffectiveDate": "2019-11-13T19:52:17.2430523",
+      "ExpirationDate": "2021-02-13T19:52:17.2430525",
+      "FirstName": "Larry",
+      "LastName": "Johnson",
+      "DriversLicenseNumber": "82730184",
+      "PremiumPrice": 225,
+      "Vehicles": [
+        {
+          "Year": 1995,
+          "Model": "Viper",
+          "Make": "Dodge"
+        }
+      ],
+      "Address": {
+        "Street": "21 Tropicana Ave",
+        "City": "Henderson",
+        "State": "NV",
+        "PostalCode": "89119"
+      }
     },
-    "AddressId": 11,
-    "Address": {
-      "AddressId": 11,
-      "Street": "123 Fulton Street",
-      "City": "Brooklyn",
-      "State": "NY",
-      "PostalCode": "11211"
+    {
+      "PolicyId": 517619,
+      "EffectiveDate": "2022-01-14T19:52:17.2401595",
+      "ExpirationDate": "2024-02-13T19:52:17.2428722",
+      "FirstName": "Joe",
+      "LastName": "Burrow",
+      "DriversLicenseNumber": "23273960",
+      "PremiumPrice": 350,
+      "Vehicles": [
+        {
+          "Year": 2020,
+          "Model": "Model X",
+          "Make": "Tesla"
+        }
+      ],
+      "Address": {
+        "Street": "123 Main St",
+        "City": "Cincinatti",
+        "State": "OH",
+        "PostalCode": "45215"
+      }
     },
-    "ExpirationDate": "2025-10-12T16:48:43.355132",
-    "PremiumPrice": 311
-  },
-  {
-    "Id": "5923aa15-958e-46cf-933b-5d7d7dabe023",
-    "PolicyId": 884759,
-    "EffectiveDate": "2019-11-12T16:48:43.3551267",
-    "FirstName": "Larry",
-    "LastName": "Johnson",
-    "DriversLicenseNumber": "67530787",
-    "VehicleId": 4,
-    "Vehicle": {
-      "VehicleId": 4,
-      "Year": 1995,
-      "Model": "Viper",
-      "Make": "Dodge"
+    {
+      "PolicyId": 590271,
+      "EffectiveDate": "2014-02-13T19:52:17.2430541",
+      "ExpirationDate": "2020-06-13T19:52:17.2430543",
+      "FirstName": "Andrew",
+      "LastName": "Wiggins",
+      "DriversLicenseNumber": "58838729",
+      "PremiumPrice": 225,
+      "Vehicles": [
+        {
+          "Year": 2020,
+          "Model": "G.T. 350",
+          "Make": "Shelby"
+        }
+      ],
+      "Address": {
+        "Street": "570 Pharcyde Lane",
+        "City": "Oakland",
+        "State": "CA",
+        "PostalCode": "94604"
+      }
     },
-    "AddressId": 4,
-    "Address": {
-      "AddressId": 4,
-      "Street": "21 Tropicana Ave",
-      "City": "Henderson",
-      "State": "NV",
-      "PostalCode": "89119"
+    {
+      "PolicyId": 633382,
+      "EffectiveDate": "2014-02-13T19:52:17.2430516",
+      "ExpirationDate": "2018-02-13T19:52:17.2430519",
+      "FirstName": "Mark",
+      "LastName": "Stone",
+      "DriversLicenseNumber": "07736284",
+      "PremiumPrice": 145,
+      "Vehicles": [
+        {
+          "Year": 1966,
+          "Model": "Mustang",
+          "Make": "Ford"
+        }
+      ],
+      "Address": {
+        "Street": "702 Flamingo Rd",
+        "City": "Las Vegas",
+        "State": "NV",
+        "PostalCode": "89105"
+      }
     },
-    "ExpirationDate": "2021-02-12T16:48:43.3551269",
-    "PremiumPrice": 225
-  },
-  {
-    "Id": "9cbf58ab-3142-464b-a25d-5db51520972f",
-    "PolicyId": 506435,
-    "EffectiveDate": "2021-04-12T16:48:43.3551226",
-    "FirstName": "Ja'Marr",
-    "LastName": "Chase",
-    "DriversLicenseNumber": "58143643",
-    "VehicleId": 2,
-    "Vehicle": {
-      "VehicleId": 2,
-      "Year": 2022,
-      "Model": "Macan",
-      "Make": "Porsche"
+    {
+      "PolicyId": 678700,
+      "EffectiveDate": "2020-11-13T19:52:17.2430546",
+      "ExpirationDate": "2025-02-13T19:52:17.2430548",
+      "FirstName": "Debo",
+      "LastName": "Samuel",
+      "DriversLicenseNumber": "01336250",
+      "PremiumPrice": 345,
+      "Vehicles": [
+        {
+          "Year": 2021,
+          "Model": "M6",
+          "Make": "BMW"
+        }
+      ],
+      "Address": {
+        "Street": "E. 40 Major Way ",
+        "City": "Oakland",
+        "State": "CA",
+        "PostalCode": "94616"
+      }
     },
-    "AddressId": 2,
-    "Address": {
-      "AddressId": 2,
-      "Street": "77 Elm Avenue",
-      "City": "Cincinatti",
-      "State": "OH",
-      "PostalCode": "45203"
+    {
+      "PolicyId": 753383,
+      "EffectiveDate": "2021-04-13T19:52:17.2430484",
+      "ExpirationDate": "2025-02-13T19:52:17.24305",
+      "FirstName": "Ja'Marr",
+      "LastName": "Chase",
+      "DriversLicenseNumber": "94323642",
+      "PremiumPrice": 225,
+      "Vehicles": [
+        {
+          "Year": 2022,
+          "Model": "Macan",
+          "Make": "Porsche"
+        }
+      ],
+      "Address": {
+        "Street": "77 Elm Avenue",
+        "City": "Cincinatti",
+        "State": "OH",
+        "PostalCode": "45203"
+      }
     },
-    "ExpirationDate": "2025-02-12T16:48:43.3551244",
-    "PremiumPrice": 225
-  },
-  {
-    "Id": "0f2d629d-9382-4892-bb00-66fb1b0cd02a",
-    "PolicyId": 485716,
-    "EffectiveDate": "2014-02-12T16:48:43.3551286",
-    "FirstName": "Andrew",
-    "LastName": "Wiggins",
-    "DriversLicenseNumber": "58401113",
-    "VehicleId": 7,
-    "Vehicle": {
-      "VehicleId": 7,
-      "Year": 2020,
-      "Model": "G.T. 350",
-      "Make": "Shelby"
+    {
+      "PolicyId": 935803,
+      "EffectiveDate": "2022-01-29T19:52:17.2430563",
+      "ExpirationDate": "2025-10-13T19:52:17.2430565",
+      "FirstName": "Kyrie",
+      "LastName": "Irving",
+      "DriversLicenseNumber": "07736216",
+      "PremiumPrice": 311,
+      "Vehicles": [
+        {
+          "Year": 2022,
+          "Model": "Huracan",
+          "Make": "Lamborghini"
+        }
+      ],
+      "Address": {
+        "Street": "123 Fulton Street",
+        "City": "Brooklyn",
+        "State": "NY",
+        "PostalCode": "11211"
+      }
     },
-    "AddressId": 7,
-    "Address": {
-      "AddressId": 7,
-      "Street": "570 Pharcyde Lane",
-      "City": "Oakland",
-      "State": "CA",
-      "PostalCode": "94604"
-    },
-    "ExpirationDate": "2020-06-12T16:48:43.3551288",
-    "PremiumPrice": 225
-  },
-  {
-    "Id": "684caae3-2647-4554-a6d5-6a9b1c590a3d",
-    "PolicyId": 962573,
-    "EffectiveDate": "2020-09-12T16:48:43.3551324",
-    "FirstName": "Kevin",
-    "LastName": "Durant",
-    "DriversLicenseNumber": "06884140",
-    "VehicleId": 12,
-    "Vehicle": {
-      "VehicleId": 12,
-      "Year": 2021,
-      "Model": "Model X",
-      "Make": "Tesla"
-    },
-    "AddressId": 12,
-    "Address": {
-      "AddressId": 12,
-      "Street": "1120 Flatbush Ave ",
-      "City": "Brooklyn",
-      "State": "NY",
-      "PostalCode": "11206"
-    },
-    "ExpirationDate": "2024-08-12T16:48:43.3551327",
-    "PremiumPrice": 420
-  },
-  {
-    "Id": "21985b7d-6bdf-48c0-90dd-84211b020eca",
-    "PolicyId": 340004,
-    "EffectiveDate": "2022-01-13T16:48:43.3551279",
-    "FirstName": "Draymond",
-    "LastName": "Green",
-    "DriversLicenseNumber": "58677291",
-    "VehicleId": 6,
-    "Vehicle": {
-      "VehicleId": 6,
-      "Year": 1967,
-      "Model": "Cutlass",
-      "Make": "Oldsmobile"
-    },
-    "AddressId": 6,
-    "Address": {
-      "AddressId": 6,
-      "Street": "420 Ashbury",
-      "City": "San Fransisco",
-      "State": "CA",
-      "PostalCode": "94117"
-    },
-    "ExpirationDate": "2027-02-12T16:48:43.3551281",
-    "PremiumPrice": 200
-  },
-  {
-    "Id": "b70062b6-56ab-4374-98fd-9261e1b139c7",
-    "PolicyId": 648210,
-    "EffectiveDate": "2014-02-12T16:48:43.3551259",
-    "FirstName": "Mark",
-    "LastName": "Stone",
-    "DriversLicenseNumber": "88416272",
-    "VehicleId": 3,
-    "Vehicle": {
-      "VehicleId": 3,
-      "Year": 1966,
-      "Model": "Mustang",
-      "Make": "Ford"
-    },
-    "AddressId": 3,
-    "Address": {
-      "AddressId": 3,
-      "Street": "702 Flamingo Rd",
-      "City": "Las Vegas",
-      "State": "NV",
-      "PostalCode": "89105"
-    },
-    "ExpirationDate": "2018-02-12T16:48:43.3551261",
-    "PremiumPrice": 145
-  },
-  {
-    "Id": "865369c4-b0aa-4181-8351-a0216085b9ec",
-    "PolicyId": 965105,
-    "EffectiveDate": "2016-02-12T16:48:43.3551305",
-    "FirstName": "Cooper",
-    "LastName": "Kupp",
-    "DriversLicenseNumber": "50028651",
-    "VehicleId": 9,
-    "Vehicle": {
-      "VehicleId": 9,
-      "Year": 1993,
-      "Model": "Tahoe",
-      "Make": "Chevrolet"
-    },
-    "AddressId": 9,
-    "Address": {
-      "AddressId": 9,
-      "Street": "88 Pacific Overlook Blvd",
-      "City": "Los Angeles",
-      "State": "CA",
-      "PostalCode": "90210"
-    },
-    "ExpirationDate": "2021-02-12T16:48:43.3551307",
-    "PremiumPrice": 65
-  },
-  {
-    "Id": "00390dae-ab04-435a-8d03-d1d667e0913c",
-    "PolicyId": 850485,
-    "EffectiveDate": "2021-02-12T16:48:43.3551273",
-    "FirstName": "Steph",
-    "LastName": "Curry",
-    "DriversLicenseNumber": "82232261",
-    "VehicleId": 5,
-    "Vehicle": {
-      "VehicleId": 5,
-      "Year": 2019,
-      "Model": "SL-63",
-      "Make": "Mercedes-benz"
-    },
-    "AddressId": 5,
-    "Address": {
-      "AddressId": 5,
-      "Street": "88 Haight St",
-      "City": "San Fransisco",
-      "State": "CA",
-      "PostalCode": "94117"
-    },
-    "ExpirationDate": "2025-02-12T16:48:43.3551275",
-    "PremiumPrice": 315
-  },
-  {
-    "Id": "e347c6cf-66a2-4598-8962-e8cc01c4b49b",
-    "PolicyId": 344132,
-    "EffectiveDate": "2020-11-12T16:48:43.3551298",
-    "FirstName": "Debo",
-    "LastName": "Samuel",
-    "DriversLicenseNumber": "23047374",
-    "VehicleId": 8,
-    "Vehicle": {
-      "VehicleId": 8,
-      "Year": 2021,
-      "Model": "M6",
-      "Make": "BMW"
-    },
-    "AddressId": 8,
-    "Address": {
-      "AddressId": 8,
-      "Street": "E. 40 Major Way ",
-      "City": "Oakland",
-      "State": "CA",
-      "PostalCode": "94616"
-    },
-    "ExpirationDate": "2025-02-12T16:48:43.35513",
-    "PremiumPrice": 345
-  }
-]
+    {
+      "PolicyId": 957200,
+      "EffectiveDate": "2020-09-13T19:52:17.2430568",
+      "ExpirationDate": "2024-08-13T19:52:17.243057",
+      "FirstName": "Kevin",
+      "LastName": "Durant",
+      "DriversLicenseNumber": "45660650",
+      "PremiumPrice": 420,
+      "Vehicles": [
+        {
+          "Year": 2021,
+          "Model": "Model X",
+          "Make": "Tesla"
+        }
+      ],
+      "Address": {
+        "Street": "1120 Flatbush Ave ",
+        "City": "Brooklyn",
+        "State": "NY",
+        "PostalCode": "11206"
+      }
+    }
+  ]
