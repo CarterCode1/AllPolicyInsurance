@@ -174,9 +174,9 @@ namespace AllPolicyInsurance.Models
                 new Vehicle { VehicleId = 12, InsurancePolicyId = policyIdList[8], Year = "1993", Make = "Chevrolet", Model = "Tahoe" },
                 new Vehicle { VehicleId = 13, InsurancePolicyId = policyIdList[9], Year = "2020", Make = "McLaren", Model = "F1" },
                 new Vehicle { VehicleId = 14, InsurancePolicyId = policyIdList[10], Year = "2022", Make = "Lamborghini", Model = "Huracan" },
-                new Vehicle { VehicleId = 15, InsurancePolicyId = policyIdList[11], Year = "2021", Make = "Tesla", Model = "Model X" }
-                new Vehicle { VehicleId = 16, InsurancePolicyId = policyIdList[11], Year = "2020", Make = "Porsche", Model = "911 Turbo S" }
-                new Vehicle { VehicleId = 17, InsurancePolicyId = policyIdList[11], Year = "1963", Make = "Chevrolet", Model = "Corvette Sting Ray" }
+                new Vehicle { VehicleId = 15, InsurancePolicyId = policyIdList[11], Year = "2021", Make = "Tesla", Model = "Model X" },
+                new Vehicle { VehicleId = 16, InsurancePolicyId = policyIdList[11], Year = "2020", Make = "Porsche", Model = "911 Turbo S" },
+                new Vehicle { VehicleId = 17, InsurancePolicyId = policyIdList[11], Year = "1963", Make = "Chevrolet", Model = "Corvette Sting Ray" },
                 new Vehicle { VehicleId = 18, InsurancePolicyId = policyIdList[11], Year = "1960", Make = "Aston Martin", Model = "DB4 GT Zagato" } 
                 
                 );  

@@ -75,18 +75,18 @@ namespace AllPolicyInsurance.Migrations
                 columns: new[] { "PolicyId", "DriversLicenseNumber", "EffectiveDate", "ExpirationDate", "FirstName", "LastName", "PremiumPrice" },
                 values: new object[,]
                 {
-                    { 329033, "88334554", new DateTime(2022, 1, 15, 12, 25, 46, 381, DateTimeKind.Local).AddTicks(6384), new DateTime(2024, 2, 14, 12, 25, 46, 383, DateTimeKind.Local).AddTicks(9156), "Joe", "Burrow", 350.0m },
-                    { 398210, "60141428", new DateTime(2021, 4, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(665), new DateTime(2025, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(681), "Ja'Marr", "Chase", 225.0m },
-                    { 553982, "04092046", new DateTime(2014, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(696), new DateTime(2018, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(699), "Mark", "Stone", 145.0m },
-                    { 162048, "73824913", new DateTime(2019, 11, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(751), new DateTime(2021, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(754), "Larry", "Johnson", 225.0m },
-                    { 457727, "34180223", new DateTime(2021, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(757), new DateTime(2025, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(759), "Steph", "Curry", 315.0m },
-                    { 934795, "99503409", new DateTime(2022, 1, 15, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(763), new DateTime(2027, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(765), "Draymond", "Green", 200.0m },
-                    { 555816, "52347333", new DateTime(2014, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(768), new DateTime(2020, 6, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(770), "Andrew", "Wiggins", 225.0m },
-                    { 988010, "54106900", new DateTime(2020, 11, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(774), new DateTime(2025, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(776), "Debo", "Samuel", 345.0m },
-                    { 539139, "21642779", new DateTime(2016, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(780), new DateTime(2021, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(782), "Cooper", "Kupp", 65.0m },
-                    { 716879, "06269112", new DateTime(2016, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(786), new DateTime(2021, 2, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(788), "Kobe", "Bryant", 65.0m },
-                    { 596124, "06023789", new DateTime(2022, 1, 30, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(791), new DateTime(2025, 10, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(793), "Kyrie", "Irving", 311.0m },
-                    { 661511, "95007774", new DateTime(2020, 9, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(796), new DateTime(2024, 8, 14, 12, 25, 46, 384, DateTimeKind.Local).AddTicks(799), "Kevin", "Durant", 420.0m }
+                    { 739646, "54114066", new DateTime(2022, 1, 16, 7, 49, 23, 31, DateTimeKind.Local).AddTicks(3842), new DateTime(2024, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(6151), "Joe", "Burrow", 350.0m },
+                    { 716287, "93445810", new DateTime(2021, 4, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7676), new DateTime(2025, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7694), "Ja'Marr", "Chase", 225.0m },
+                    { 705889, "91820223", new DateTime(2014, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7708), new DateTime(2018, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7711), "Mark", "Stone", 145.0m },
+                    { 582222, "70126605", new DateTime(2019, 11, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7715), new DateTime(2021, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7718), "Larry", "Johnson", 225.0m },
+                    { 637769, "57688514", new DateTime(2021, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7721), new DateTime(2025, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7723), "Steph", "Curry", 315.0m },
+                    { 705683, "28668068", new DateTime(2022, 1, 16, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7726), new DateTime(2027, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7728), "Draymond", "Green", 200.0m },
+                    { 827976, "10319154", new DateTime(2014, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7732), new DateTime(2020, 6, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7734), "Andrew", "Wiggins", 225.0m },
+                    { 945703, "49276028", new DateTime(2020, 11, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7737), new DateTime(2025, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7740), "Debo", "Samuel", 345.0m },
+                    { 517229, "22838511", new DateTime(2016, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7795), new DateTime(2021, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7798), "Cooper", "Kupp", 65.0m },
+                    { 912358, "35147137", new DateTime(2016, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7802), new DateTime(2021, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7804), "Kobe", "Bryant", 65.0m },
+                    { 468308, "33805986", new DateTime(2022, 1, 31, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7807), new DateTime(2025, 10, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7810), "Kyrie", "Irving", 311.0m },
+                    { 740556, "86728178", new DateTime(2020, 9, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7813), new DateTime(2024, 8, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7815), "Kevin", "Durant", 420.0m }
                 });
 
             migrationBuilder.InsertData(
@@ -94,18 +94,18 @@ namespace AllPolicyInsurance.Migrations
                 columns: new[] { "AddressId", "City", "InsurancePolicyId", "PostalCode", "State", "Street" },
                 values: new object[,]
                 {
-                    { 1, "Cincinatti", 329033, "45215", "OH", "123 Main St" },
-                    { 2, "Cincinatti", 398210, "45203", "OH", "77 Elm Avenue" },
-                    { 11, "Brooklyn", 596124, "11211", "NY", "123 Fulton Street" },
-                    { 3, "Las Vegas", 553982, "89105", "NV", "702 Flamingo Rd" },
-                    { 4, "Henderson", 162048, "89119", "NV", "21 Tropicana Ave" },
-                    { 10, "Newport", 716879, "90004", "CA", "8 Mamba Street" },
-                    { 5, "San Fransisco", 457727, "94117", "CA", "88 Haight St" },
-                    { 6, "San Fransisco", 934795, "94117", "CA", "420 Ashbury" },
-                    { 12, "Brooklyn", 661511, "11206", "NY", "1120 Flatbush Ave " },
-                    { 7, "Oakland", 555816, "94604", "CA", "570 Pharcyde Lane" },
-                    { 9, "Los Angeles", 539139, "90210", "CA", "88 Pacific Overlook Blvd" },
-                    { 8, "Oakland", 988010, "94616", "CA", "E. 40 Major Way " }
+                    { 1, "Cincinatti", 739646, "45215", "OH", "123 Main St" },
+                    { 7, "Oakland", 827976, "94604", "CA", "570 Pharcyde Lane" },
+                    { 9, "Los Angeles", 517229, "90210", "CA", "88 Pacific Overlook Blvd" },
+                    { 6, "San Fransisco", 705683, "94117", "CA", "420 Ashbury" },
+                    { 10, "Newport", 912358, "90004", "CA", "8 Mamba Street" },
+                    { 5, "San Fransisco", 637769, "94117", "CA", "88 Haight St" },
+                    { 11, "Brooklyn", 468308, "11211", "NY", "123 Fulton Street" },
+                    { 4, "Henderson", 582222, "89119", "NV", "21 Tropicana Ave" },
+                    { 2, "Cincinatti", 716287, "45203", "OH", "77 Elm Avenue" },
+                    { 12, "Brooklyn", 740556, "11206", "NY", "1120 Flatbush Ave " },
+                    { 3, "Las Vegas", 705889, "89105", "NV", "702 Flamingo Rd" },
+                    { 8, "Oakland", 945703, "94616", "CA", "E. 40 Major Way " }
                 });
 
             migrationBuilder.InsertData(
@@ -113,18 +113,24 @@ namespace AllPolicyInsurance.Migrations
                 columns: new[] { "VehicleId", "InsurancePolicyId", "Make", "Model", "Year" },
                 values: new object[,]
                 {
-                    { 11, 596124, "Lamborghini", "Huracan", "2022" },
-                    { 10, 716879, "McLaren", "F1", "2020" },
-                    { 9, 539139, "Chevrolet", "Tahoe", "1993" },
-                    { 6, 934795, "Oldsmobile", "Cutlass", "1967" },
-                    { 7, 555816, "Shelby", "G.T. 350", "2020" },
-                    { 5, 457727, "Mercedes-benz", "SL-63", "2019" },
-                    { 4, 162048, "Dodge", "Viper", "1995" },
-                    { 3, 553982, "Ford", "Mustang", "1966" },
-                    { 2, 398210, "Porsche", "Macan", "2022" },
-                    { 1, 329033, "Tesla", "Model X", "2020" },
-                    { 8, 988010, "BMW", "M6", "2021" },
-                    { 12, 661511, "Tesla", "Model X", "2021" }
+                    { 11, 945703, "BMW", "M6", "2021" },
+                    { 13, 912358, "McLaren", "F1", "2020" },
+                    { 14, 468308, "Lamborghini", "Huracan", "2022" },
+                    { 12, 517229, "Chevrolet", "Tahoe", "1993" },
+                    { 15, 740556, "Tesla", "Model X", "2021" },
+                    { 16, 740556, "Porsche", "911 Turbo S", "2020" },
+                    { 9, 705683, "Oldsmobile", "Cutlass", "1967" },
+                    { 17, 740556, "Chevrolet", "Corvette Sting Ray", "1963" },
+                    { 8, 637769, "Acura", "NSX", "1990" },
+                    { 7, 637769, "Mercedes-benz", "SL-63", "2019" },
+                    { 6, 582222, "Dodge", "Viper", "1995" },
+                    { 5, 705889, "Ford", "Mustang", "1966" },
+                    { 4, 716287, "Porsche", "Macan", "2022" },
+                    { 3, 739646, "BMW", "Z4", "2008" },
+                    { 2, 739646, "GMC", "Suburban", "2014" },
+                    { 1, 739646, "Tesla", "Model X", "2020" },
+                    { 10, 827976, "Shelby", "G.T. 350", "2020" },
+                    { 18, 740556, "Aston Martin", "DB4 GT Zagato", "1960" }
                 });
 
             migrationBuilder.CreateIndex(
