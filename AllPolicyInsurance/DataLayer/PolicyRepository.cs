@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace AllPolicyInsurance.DataLayer
 {
@@ -48,9 +49,10 @@ namespace AllPolicyInsurance.DataLayer
             if (sortOrder == "asc")
             {
                 policies = await _dbContext.InsurancePolicies
-                        .Include(x => x.Vehicles.OrderBy(v => v.Year))
-                        .Include(y => y.Address)
-                        .Where(p => p.DriversLicenseNumber == liscenseNumber)
+                        .Include(v => v.Vehicles.OrderBy(o => o.Year))
+                        .Include(a => a.Address)
+                        .Where(p => p.DriversLicenseNumber == liscenseNumber &&
+                            (isExpired || p.ExpirationDate > DateTime.Now))
                         .ToListAsync();
 
             }
@@ -59,17 +61,10 @@ namespace AllPolicyInsurance.DataLayer
                 policies = await _dbContext.InsurancePolicies
                         .Include(x => x.Vehicles.OrderByDescending(v => v.Year))
                         .Include(y => y.Address)
-                        .Where(p => p.DriversLicenseNumber == liscenseNumber)
+                        .Where(p => p.DriversLicenseNumber == liscenseNumber &&
+                            (isExpired || p.ExpirationDate > DateTime.Now))
                         .ToListAsync();
             }
-
-            //foreach(var policy in policies)
-            //{
-            //    policy.Vehicles = policy.Vehicles.OrderByDescending(policy.Vehicles.)
-            //}
-
-
-
 
             return policies;
         }
