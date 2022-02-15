@@ -48,6 +48,7 @@ namespace AllPolicyInsurance.Controllers
         {
             try
             {
+
                 var policy = await _policyManager.GetPolicyById(id);
                 var policyDTO = _mapper.Map<PolicyDTO>(policy);
 
@@ -55,7 +56,7 @@ namespace AllPolicyInsurance.Controllers
                 {
                     return Ok(policyDTO);
                 }
-                return NotFound($"Policy with Id: {id} was not found");
+                return NotFound($"Policy with Id: {id} was not found.");
 
             }
             catch (Exception ex)
@@ -70,14 +71,24 @@ namespace AllPolicyInsurance.Controllers
         {
             try
             {
-                var policies = await _policyManager.GetPoliciesByDriversLiscense(liscence);
+                if (string.IsNullOrWhiteSpace(liscence))
+                {
+                    return BadRequest("Drivers Liscence number is required.");
+                }
+
+                if(!int.TryParse(liscence, out _))
+                {
+                    return BadRequest("Drivers Liscence is required to in number format.");
+                }
+                var t = sortOrder;
+                var policies = await _policyManager.GetPoliciesByDriversLiscense(liscence, sortOrder, isExpired);
                 var policyDTO = _mapper.Map<List<PolicyDTO>>(policies);
 
                 if (policyDTO.Any())
                 {
                     return Ok(policyDTO);
                 }
-                return NotFound($"Policy with Drivers Liscense {liscence} was not found");
+                return NotFound($"Policy with Drivers Liscense {liscence} was not found.");
             }
             catch(Exception ex)
             {

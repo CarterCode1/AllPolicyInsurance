@@ -36,9 +36,9 @@ namespace AllPolicyInsurance.Core
             return await _policyRepository.GetPolicies();
         }
 
-        public async Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)
+        public async Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber, string sortOrder, bool isExpired = false)
         {
-            return await _policyRepository.GetPoliciesByDriversLiscense(liscenseNumber);
+            return await _policyRepository.GetPoliciesByDriversLiscense(liscenseNumber, sortOrder, isExpired);
         }
 
         public async Task<InsurancePolicy> GetPolicyById(int id)

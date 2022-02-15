@@ -40,7 +40,7 @@ namespace AllPolicyInsurance.DataLayer
             return policies;
         }
 
-        public async Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)
+        public async Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber, string sortOrder, bool isExpired = false)
         {
             var policies = await _dbContext.InsurancePolicies
                 .Include(x => x.Vehicles)

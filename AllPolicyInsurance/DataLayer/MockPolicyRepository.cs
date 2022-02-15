@@ -64,7 +64,7 @@ namespace AllPolicyInsurance.DataLayer
                 _insurancePolicies.SingleOrDefault(x => x.PolicyId == id));
         }
 
-        public  Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber)
+        public  Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber, string sortOrder, bool isExpired = false)
         {
             return Task.FromResult<IList<InsurancePolicy>>(
                 _insurancePolicies.Where(p => p.DriversLicenseNumber == liscenseNumber).ToList());
