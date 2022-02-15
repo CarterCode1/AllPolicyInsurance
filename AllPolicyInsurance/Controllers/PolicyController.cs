@@ -8,6 +8,7 @@ using AllPolicyInsurance.Core;
 using AutoMapper;
 using AllPolicyInsurance.Models;
 using System;
+using Microsoft.Extensions.Configuration;
 
 namespace AllPolicyInsurance.Controllers
 {
@@ -16,13 +17,16 @@ namespace AllPolicyInsurance.Controllers
     public class PolicyController : ControllerBase
     {
         private readonly ILogger<PolicyController> _logger;
+        IConfiguration _configuration;
         private IPolicyManager _policyManager;
         private readonly IMapper _mapper;
 
-        public PolicyController(ILogger<PolicyController> logger, IMapper mapper, IPolicyManager policyManager)
+        public PolicyController(ILogger<PolicyController> logger, IConfiguration configuration, IMapper mapper, IPolicyManager policyManager)
         {
-            _mapper = mapper;
+
             _logger = logger;
+            _configuration = configuration;
+            _mapper = mapper;
             _policyManager = policyManager;
         }
 
@@ -99,11 +103,25 @@ namespace AllPolicyInsurance.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreatePolicy([FromBody] PolicyRequestDTO policyDTO)
+        public async Task<IActionResult> CreatePolicy([FromBody] PolicyRequestDTO policyRequestDTO)
         {
             try
             {
-                var insurancePolicy = _mapper.Map<InsurancePolicy>(policyDTO);
+
+                if(policyRequestDTO.EffectiveDate < DateTime.Now.AddDays(30))
+                {
+                    return BadRequest("Effective Date must be 30 days in the future.");
+                }
+
+                foreach (VehicleDTO vehicle in policyRequestDTO.Vehicles)
+                {
+                    if(int.Parse(vehicle.Year) > int.Parse(_configuration["ClassicVehicle"]))
+                    {
+                        return BadRequest($"Vehicle {vehicle.Make} {vehicle.Model} is ineligible for coverage due to it not meeting the requirements of a Classic Vehicle.");
+                    }
+                }
+
+                var insurancePolicy = _mapper.Map<InsurancePolicy>(policyRequestDTO);
 
                 var createdPolicy = await _policyManager.CreateInsurancePolicy(insurancePolicy);
                 var createdPolicyDTO = _mapper.Map<PolicyDTO>(createdPolicy);

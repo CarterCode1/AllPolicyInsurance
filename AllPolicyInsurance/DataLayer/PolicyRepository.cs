@@ -46,27 +46,42 @@ namespace AllPolicyInsurance.DataLayer
 
             var policies = new List<InsurancePolicy>();
 
-            if (sortOrder == "asc")
+            switch (sortOrder)
             {
-                policies = await _dbContext.InsurancePolicies
-                        .Include(v => v.Vehicles.OrderBy(o => o.Year))
-                        .Include(a => a.Address)
-                        .Where(p => p.DriversLicenseNumber == liscenseNumber &&
-                            (isExpired || p.ExpirationDate > DateTime.Now))
-                        .ToListAsync();
+                case "asc":
+                    {
+                        policies = await _dbContext.InsurancePolicies
+                            .Include(v => v.Vehicles.OrderBy(o => o.Year))
+                            .Include(a => a.Address)
+                            .Where(p => p.DriversLicenseNumber == liscenseNumber &&
+                                (isExpired || p.ExpirationDate > DateTime.Now))
+                            .ToListAsync();
 
-            }
-            else
-            {
-                policies = await _dbContext.InsurancePolicies
-                        .Include(x => x.Vehicles.OrderByDescending(v => v.Year))
-                        .Include(y => y.Address)
-                        .Where(p => p.DriversLicenseNumber == liscenseNumber &&
-                            (isExpired || p.ExpirationDate > DateTime.Now))
-                        .ToListAsync();
-            }
+                        return policies;
+                    }
+                case "desc":
+                    {
+                        policies = await _dbContext.InsurancePolicies
+                            .Include(x => x.Vehicles.OrderByDescending(v => v.Year))
+                            .Include(y => y.Address)
+                            .Where(p => p.DriversLicenseNumber == liscenseNumber &&
+                                (isExpired || p.ExpirationDate > DateTime.Now))
+                            .ToListAsync();
 
-            return policies;
+                        return policies;
+                    }
+                default:
+                    {
+                        policies = await _dbContext.InsurancePolicies
+                            .Include(x => x.Vehicles)
+                            .Include(y => y.Address)
+                            .Where(p => p.DriversLicenseNumber == liscenseNumber &&
+                                (isExpired || p.ExpirationDate > DateTime.Now))
+                            .ToListAsync();
+
+                        return policies;
+                    }
+            }
         }
 
         public async Task<InsurancePolicy> GetPolicyById(int id)

@@ -161,8 +161,8 @@ namespace AllPolicyInsurance.Models
 
             modelBuilder.Entity<Vehicle>().HasData(
                 new Vehicle { VehicleId = 1, InsurancePolicyId = policyIdList[0], Year = "2020", Make = "Tesla", Model = "Model X" },
-                new Vehicle { VehicleId = 2, InsurancePolicyId = policyIdList[0], Year = "2014", Make = "GMC", Model = "Suburban" },
-                new Vehicle { VehicleId = 3, InsurancePolicyId = policyIdList[0], Year = "2008", Make = "BMW", Model = "Z4" },      
+                new Vehicle { VehicleId = 2, InsurancePolicyId = policyIdList[0], Year = "2008", Make = "BMW", Model = "Z4" },
+                new Vehicle { VehicleId = 3, InsurancePolicyId = policyIdList[0], Year = "2014", Make = "GMC", Model = "Suburban" },
                 new Vehicle { VehicleId = 4, InsurancePolicyId = policyIdList[1], Year = "2022", Make = "Porsche", Model = "Macan" },
                 new Vehicle { VehicleId = 5, InsurancePolicyId = policyIdList[2], Year = "1966", Make = "Ford", Model = "Mustang" },               
                 new Vehicle { VehicleId = 6, InsurancePolicyId = policyIdList[3], Year = "1995", Make = "Dodge", Model = "Viper" },

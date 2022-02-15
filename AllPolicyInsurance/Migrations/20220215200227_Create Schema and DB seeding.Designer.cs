@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AllPolicyInsurance.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20220215154923_Create Schema and DB seeding")]
+    [Migration("20220215200227_Create Schema and DB seeding")]
     partial class CreateSchemaandDBseeding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,7 +61,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 1,
                             City = "Cincinatti",
-                            InsurancePolicyId = 739646,
+                            InsurancePolicyId = 863871,
                             PostalCode = "45215",
                             State = "OH",
                             Street = "123 Main St"
@@ -70,7 +70,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 2,
                             City = "Cincinatti",
-                            InsurancePolicyId = 716287,
+                            InsurancePolicyId = 319655,
                             PostalCode = "45203",
                             State = "OH",
                             Street = "77 Elm Avenue"
@@ -79,7 +79,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 3,
                             City = "Las Vegas",
-                            InsurancePolicyId = 705889,
+                            InsurancePolicyId = 399217,
                             PostalCode = "89105",
                             State = "NV",
                             Street = "702 Flamingo Rd"
@@ -88,7 +88,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 4,
                             City = "Henderson",
-                            InsurancePolicyId = 582222,
+                            InsurancePolicyId = 769245,
                             PostalCode = "89119",
                             State = "NV",
                             Street = "21 Tropicana Ave"
@@ -97,7 +97,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 5,
                             City = "San Fransisco",
-                            InsurancePolicyId = 637769,
+                            InsurancePolicyId = 972348,
                             PostalCode = "94117",
                             State = "CA",
                             Street = "88 Haight St"
@@ -106,7 +106,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 6,
                             City = "San Fransisco",
-                            InsurancePolicyId = 705683,
+                            InsurancePolicyId = 109164,
                             PostalCode = "94117",
                             State = "CA",
                             Street = "420 Ashbury"
@@ -115,7 +115,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 7,
                             City = "Oakland",
-                            InsurancePolicyId = 827976,
+                            InsurancePolicyId = 134365,
                             PostalCode = "94604",
                             State = "CA",
                             Street = "570 Pharcyde Lane"
@@ -124,7 +124,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 8,
                             City = "Oakland",
-                            InsurancePolicyId = 945703,
+                            InsurancePolicyId = 710259,
                             PostalCode = "94616",
                             State = "CA",
                             Street = "E. 40 Major Way "
@@ -133,7 +133,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 9,
                             City = "Los Angeles",
-                            InsurancePolicyId = 517229,
+                            InsurancePolicyId = 380041,
                             PostalCode = "90210",
                             State = "CA",
                             Street = "88 Pacific Overlook Blvd"
@@ -142,7 +142,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 10,
                             City = "Newport",
-                            InsurancePolicyId = 912358,
+                            InsurancePolicyId = 788741,
                             PostalCode = "90004",
                             State = "CA",
                             Street = "8 Mamba Street"
@@ -151,7 +151,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 11,
                             City = "Brooklyn",
-                            InsurancePolicyId = 468308,
+                            InsurancePolicyId = 253905,
                             PostalCode = "11211",
                             State = "NY",
                             Street = "123 Fulton Street"
@@ -160,7 +160,7 @@ namespace AllPolicyInsurance.Migrations
                         {
                             AddressId = 12,
                             City = "Brooklyn",
-                            InsurancePolicyId = 740556,
+                            InsurancePolicyId = 558865,
                             PostalCode = "11206",
                             State = "NY",
                             Street = "1120 Flatbush Ave "
@@ -203,120 +203,120 @@ namespace AllPolicyInsurance.Migrations
                     b.HasData(
                         new
                         {
-                            PolicyId = 739646,
-                            DriversLicenseNumber = "54114066",
-                            EffectiveDate = new DateTime(2022, 1, 16, 7, 49, 23, 31, DateTimeKind.Local).AddTicks(3842),
-                            ExpirationDate = new DateTime(2024, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(6151),
+                            PolicyId = 863871,
+                            DriversLicenseNumber = "50725819",
+                            EffectiveDate = new DateTime(2022, 1, 16, 12, 2, 27, 257, DateTimeKind.Local).AddTicks(369),
+                            ExpirationDate = new DateTime(2024, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(2491),
                             FirstName = "Joe",
                             LastName = "Burrow",
                             PremiumPrice = 350.0m
                         },
                         new
                         {
-                            PolicyId = 716287,
-                            DriversLicenseNumber = "93445810",
-                            EffectiveDate = new DateTime(2021, 4, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7676),
-                            ExpirationDate = new DateTime(2025, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7694),
+                            PolicyId = 319655,
+                            DriversLicenseNumber = "85190713",
+                            EffectiveDate = new DateTime(2021, 4, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4076),
+                            ExpirationDate = new DateTime(2025, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4092),
                             FirstName = "Ja'Marr",
                             LastName = "Chase",
                             PremiumPrice = 225.0m
                         },
                         new
                         {
-                            PolicyId = 705889,
-                            DriversLicenseNumber = "91820223",
-                            EffectiveDate = new DateTime(2014, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7708),
-                            ExpirationDate = new DateTime(2018, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7711),
+                            PolicyId = 399217,
+                            DriversLicenseNumber = "74907111",
+                            EffectiveDate = new DateTime(2014, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4107),
+                            ExpirationDate = new DateTime(2018, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4110),
                             FirstName = "Mark",
                             LastName = "Stone",
                             PremiumPrice = 145.0m
                         },
                         new
                         {
-                            PolicyId = 582222,
-                            DriversLicenseNumber = "70126605",
-                            EffectiveDate = new DateTime(2019, 11, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7715),
-                            ExpirationDate = new DateTime(2021, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7718),
+                            PolicyId = 769245,
+                            DriversLicenseNumber = "72600482",
+                            EffectiveDate = new DateTime(2019, 11, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4114),
+                            ExpirationDate = new DateTime(2021, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4117),
                             FirstName = "Larry",
                             LastName = "Johnson",
                             PremiumPrice = 225.0m
                         },
                         new
                         {
-                            PolicyId = 637769,
-                            DriversLicenseNumber = "57688514",
-                            EffectiveDate = new DateTime(2021, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7721),
-                            ExpirationDate = new DateTime(2025, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7723),
+                            PolicyId = 972348,
+                            DriversLicenseNumber = "15100935",
+                            EffectiveDate = new DateTime(2021, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4120),
+                            ExpirationDate = new DateTime(2025, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4122),
                             FirstName = "Steph",
                             LastName = "Curry",
                             PremiumPrice = 315.0m
                         },
                         new
                         {
-                            PolicyId = 705683,
-                            DriversLicenseNumber = "28668068",
-                            EffectiveDate = new DateTime(2022, 1, 16, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7726),
-                            ExpirationDate = new DateTime(2027, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7728),
+                            PolicyId = 109164,
+                            DriversLicenseNumber = "43283972",
+                            EffectiveDate = new DateTime(2022, 1, 16, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4126),
+                            ExpirationDate = new DateTime(2027, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4128),
                             FirstName = "Draymond",
                             LastName = "Green",
                             PremiumPrice = 200.0m
                         },
                         new
                         {
-                            PolicyId = 827976,
-                            DriversLicenseNumber = "10319154",
-                            EffectiveDate = new DateTime(2014, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7732),
-                            ExpirationDate = new DateTime(2020, 6, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7734),
+                            PolicyId = 134365,
+                            DriversLicenseNumber = "60933490",
+                            EffectiveDate = new DateTime(2014, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4132),
+                            ExpirationDate = new DateTime(2020, 6, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4134),
                             FirstName = "Andrew",
                             LastName = "Wiggins",
                             PremiumPrice = 225.0m
                         },
                         new
                         {
-                            PolicyId = 945703,
-                            DriversLicenseNumber = "49276028",
-                            EffectiveDate = new DateTime(2020, 11, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7737),
-                            ExpirationDate = new DateTime(2025, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7740),
+                            PolicyId = 710259,
+                            DriversLicenseNumber = "48275090",
+                            EffectiveDate = new DateTime(2020, 11, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4138),
+                            ExpirationDate = new DateTime(2025, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4141),
                             FirstName = "Debo",
                             LastName = "Samuel",
                             PremiumPrice = 345.0m
                         },
                         new
                         {
-                            PolicyId = 517229,
-                            DriversLicenseNumber = "22838511",
-                            EffectiveDate = new DateTime(2016, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7795),
-                            ExpirationDate = new DateTime(2021, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7798),
+                            PolicyId = 380041,
+                            DriversLicenseNumber = "42720420",
+                            EffectiveDate = new DateTime(2016, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4145),
+                            ExpirationDate = new DateTime(2021, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4148),
                             FirstName = "Cooper",
                             LastName = "Kupp",
                             PremiumPrice = 65.0m
                         },
                         new
                         {
-                            PolicyId = 912358,
-                            DriversLicenseNumber = "35147137",
-                            EffectiveDate = new DateTime(2016, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7802),
-                            ExpirationDate = new DateTime(2021, 2, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7804),
+                            PolicyId = 788741,
+                            DriversLicenseNumber = "44321177",
+                            EffectiveDate = new DateTime(2016, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4151),
+                            ExpirationDate = new DateTime(2021, 2, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4154),
                             FirstName = "Kobe",
                             LastName = "Bryant",
                             PremiumPrice = 65.0m
                         },
                         new
                         {
-                            PolicyId = 468308,
-                            DriversLicenseNumber = "33805986",
-                            EffectiveDate = new DateTime(2022, 1, 31, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7807),
-                            ExpirationDate = new DateTime(2025, 10, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7810),
+                            PolicyId = 253905,
+                            DriversLicenseNumber = "56200559",
+                            EffectiveDate = new DateTime(2022, 1, 31, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4157),
+                            ExpirationDate = new DateTime(2025, 10, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4159),
                             FirstName = "Kyrie",
                             LastName = "Irving",
                             PremiumPrice = 311.0m
                         },
                         new
                         {
-                            PolicyId = 740556,
-                            DriversLicenseNumber = "86728178",
-                            EffectiveDate = new DateTime(2020, 9, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7813),
-                            ExpirationDate = new DateTime(2024, 8, 15, 7, 49, 23, 33, DateTimeKind.Local).AddTicks(7815),
+                            PolicyId = 558865,
+                            DriversLicenseNumber = "79062485",
+                            EffectiveDate = new DateTime(2020, 9, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4163),
+                            ExpirationDate = new DateTime(2024, 8, 15, 12, 2, 27, 259, DateTimeKind.Local).AddTicks(4166),
                             FirstName = "Kevin",
                             LastName = "Durant",
                             PremiumPrice = 420.0m
@@ -356,7 +356,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 1,
-                            InsurancePolicyId = 739646,
+                            InsurancePolicyId = 863871,
                             Make = "Tesla",
                             Model = "Model X",
                             Year = "2020"
@@ -364,23 +364,23 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 2,
-                            InsurancePolicyId = 739646,
-                            Make = "GMC",
-                            Model = "Suburban",
-                            Year = "2014"
-                        },
-                        new
-                        {
-                            VehicleId = 3,
-                            InsurancePolicyId = 739646,
+                            InsurancePolicyId = 863871,
                             Make = "BMW",
                             Model = "Z4",
                             Year = "2008"
                         },
                         new
                         {
+                            VehicleId = 3,
+                            InsurancePolicyId = 863871,
+                            Make = "GMC",
+                            Model = "Suburban",
+                            Year = "2014"
+                        },
+                        new
+                        {
                             VehicleId = 4,
-                            InsurancePolicyId = 716287,
+                            InsurancePolicyId = 319655,
                             Make = "Porsche",
                             Model = "Macan",
                             Year = "2022"
@@ -388,7 +388,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 5,
-                            InsurancePolicyId = 705889,
+                            InsurancePolicyId = 399217,
                             Make = "Ford",
                             Model = "Mustang",
                             Year = "1966"
@@ -396,7 +396,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 6,
-                            InsurancePolicyId = 582222,
+                            InsurancePolicyId = 769245,
                             Make = "Dodge",
                             Model = "Viper",
                             Year = "1995"
@@ -404,7 +404,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 7,
-                            InsurancePolicyId = 637769,
+                            InsurancePolicyId = 972348,
                             Make = "Mercedes-benz",
                             Model = "SL-63",
                             Year = "2019"
@@ -412,7 +412,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 8,
-                            InsurancePolicyId = 637769,
+                            InsurancePolicyId = 972348,
                             Make = "Acura",
                             Model = "NSX",
                             Year = "1990"
@@ -420,7 +420,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 9,
-                            InsurancePolicyId = 705683,
+                            InsurancePolicyId = 109164,
                             Make = "Oldsmobile",
                             Model = "Cutlass",
                             Year = "1967"
@@ -428,7 +428,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 10,
-                            InsurancePolicyId = 827976,
+                            InsurancePolicyId = 134365,
                             Make = "Shelby",
                             Model = "G.T. 350",
                             Year = "2020"
@@ -436,7 +436,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 11,
-                            InsurancePolicyId = 945703,
+                            InsurancePolicyId = 710259,
                             Make = "BMW",
                             Model = "M6",
                             Year = "2021"
@@ -444,7 +444,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 12,
-                            InsurancePolicyId = 517229,
+                            InsurancePolicyId = 380041,
                             Make = "Chevrolet",
                             Model = "Tahoe",
                             Year = "1993"
@@ -452,7 +452,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 13,
-                            InsurancePolicyId = 912358,
+                            InsurancePolicyId = 788741,
                             Make = "McLaren",
                             Model = "F1",
                             Year = "2020"
@@ -460,7 +460,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 14,
-                            InsurancePolicyId = 468308,
+                            InsurancePolicyId = 253905,
                             Make = "Lamborghini",
                             Model = "Huracan",
                             Year = "2022"
@@ -468,7 +468,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 15,
-                            InsurancePolicyId = 740556,
+                            InsurancePolicyId = 558865,
                             Make = "Tesla",
                             Model = "Model X",
                             Year = "2021"
@@ -476,7 +476,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 16,
-                            InsurancePolicyId = 740556,
+                            InsurancePolicyId = 558865,
                             Make = "Porsche",
                             Model = "911 Turbo S",
                             Year = "2020"
@@ -484,7 +484,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 17,
-                            InsurancePolicyId = 740556,
+                            InsurancePolicyId = 558865,
                             Make = "Chevrolet",
                             Model = "Corvette Sting Ray",
                             Year = "1963"
@@ -492,7 +492,7 @@ namespace AllPolicyInsurance.Migrations
                         new
                         {
                             VehicleId = 18,
-                            InsurancePolicyId = 740556,
+                            InsurancePolicyId = 558865,
                             Make = "Aston Martin",
                             Model = "DB4 GT Zagato",
                             Year = "1960"

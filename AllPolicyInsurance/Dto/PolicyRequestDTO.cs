@@ -27,7 +27,7 @@ namespace AllPolicyInsurance.Dto
         public decimal PremiumPrice { get; set; }
 
         [Required]
-        public ICollection<VehicleDTO> Vehicles { get; set; }
+        public IList<VehicleDTO> Vehicles { get; set; }
 
         [Required]
         public AddressDTO Address { get; set; }

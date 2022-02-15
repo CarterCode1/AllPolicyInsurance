@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using AllPolicyInsurance.DataLayer;
+using System.Net.Http;
+using System.Net;
 
 namespace AllPolicyInsurance.Core
 {
