@@ -77,11 +77,11 @@ namespace AllPolicyInsurance.Core
         
         private bool ValidateInsurancePolicy(InsurancePolicy insurancePolicy)
         {
-            return (VerifyEffectiveDate(insurancePolicy) && VerifyClassicVehicle(insurancePolicy) && VerifyStateRegulations(insurancePolicy));
+            return (VerifyEffectiveDate(insurancePolicy.EffectiveDate) && VerifyClassicVehicle(insurancePolicy.Vehicles) && VerifyStateRegulations(insurancePolicy));
         }
-        private bool VerifyEffectiveDate(InsurancePolicy insurancePolicy)
+        private bool VerifyEffectiveDate(DateTime effectiveDate)
         {
-            if(insurancePolicy.EffectiveDate < DateTime.Now.AddDays(30))
+            if(effectiveDate < DateTime.Now.AddDays(30))
             {
                 DeclinedExplanation = "Effective Date must be 30 days in the future.";
                 return false;
@@ -89,9 +89,9 @@ namespace AllPolicyInsurance.Core
             return true;
         }
 
-        private bool VerifyClassicVehicle(InsurancePolicy insurancePolicy)
+        private bool VerifyClassicVehicle(ICollection<Vehicle> vehicles)
         {
-            foreach (Vehicle vehicle in insurancePolicy.Vehicles)
+            foreach (Vehicle vehicle in vehicles)
             {
                 if (int.Parse(vehicle.Year) > int.Parse(_configuration["ClassicVehicle"]))
                 {
