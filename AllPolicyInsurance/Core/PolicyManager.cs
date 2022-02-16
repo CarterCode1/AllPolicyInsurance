@@ -6,10 +6,11 @@ using Microsoft.Extensions.Logging;
 using AllPolicyInsurance.DataLayer;
 using System.Net.Http;
 using System.Net;
+using System;
 
 namespace AllPolicyInsurance.Core
 {
-    public class PolicyManager : IPolicyManager
+    public class PolicyManager : RegulatoryManager, IPolicyManager 
     {
 
         private readonly ILogger<PolicyManager> _logger;
@@ -21,10 +22,17 @@ namespace AllPolicyInsurance.Core
             _policyRepository = policyRepository;
         }
 
-        public async Task<InsurancePolicy> CreateInsurancePolicy(InsurancePolicy insurancePolicy)
+        public async Task<Tuple<bool , InsurancePolicy, string >> CreateInsurancePolicy(InsurancePolicy insurancePolicy)
         {
+            string message = null;
+            
+            if(VerifyStateRegulations(insurancePolicy))
+            {
+                return new Tuple<bool, InsurancePolicy, string>(false, insurancePolicy, DeclinedExplanation);
+            }
+
             var createdPolicy = await _policyRepository.CreateInsurancePolicy(insurancePolicy);
-            return createdPolicy;
+            return new Tuple<bool, InsurancePolicy, string> (true, createdPolicy, message);
 
         }
 

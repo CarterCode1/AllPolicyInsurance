@@ -17,7 +17,7 @@ namespace AllPolicyInsurance.Controllers
     public class PolicyController : ControllerBase
     {
         private readonly ILogger<PolicyController> _logger;
-        IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
         private IPolicyManager _policyManager;
         private readonly IMapper _mapper;
 
@@ -71,7 +71,7 @@ namespace AllPolicyInsurance.Controllers
         }
 
         [HttpGet("liscence/{liscence}")]
-        public async Task<IActionResult> GetPoliciesByDriversLiscense(string liscence, string sortOrder , bool isExpired = false)
+        public async Task<IActionResult> GetPoliciesByDriversLiscense(string liscence, string sortOrder, bool isExpired = false)
         {
             try
             {
@@ -80,11 +80,11 @@ namespace AllPolicyInsurance.Controllers
                     return BadRequest("Drivers Liscence number is required.");
                 }
 
-                if(!int.TryParse(liscence, out _))
+                if (!int.TryParse(liscence, out _))
                 {
                     return BadRequest("Drivers Liscence is required to in number format.");
                 }
-                var t = sortOrder;
+
                 var policies = await _policyManager.GetPoliciesByDriversLiscense(liscence, sortOrder, isExpired);
                 var policyDTO = _mapper.Map<List<PolicyDTO>>(policies);
 
@@ -94,7 +94,7 @@ namespace AllPolicyInsurance.Controllers
                 }
                 return NotFound($"Policy with Drivers Liscense {liscence} was not found.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError("An exception has occurred on GetPoliciesByDriversLiscense endpoint, error details: {@Exception}", ex);
                 return StatusCode(500);
@@ -108,29 +108,36 @@ namespace AllPolicyInsurance.Controllers
             try
             {
 
-                if(policyRequestDTO.EffectiveDate < DateTime.Now.AddDays(30))
+                if (policyRequestDTO.EffectiveDate < DateTime.Now.AddDays(30))
                 {
                     return BadRequest("Effective Date must be 30 days in the future.");
                 }
 
                 foreach (VehicleDTO vehicle in policyRequestDTO.Vehicles)
                 {
-                    if(int.Parse(vehicle.Year) > int.Parse(_configuration["ClassicVehicle"]))
+                    if (int.Parse(vehicle.Year) > int.Parse(_configuration["ClassicVehicle"]))
                     {
                         return BadRequest($"Vehicle {vehicle.Make} {vehicle.Model} is ineligible for coverage due to it not meeting the requirements of a Classic Vehicle.");
                     }
                 }
 
-                var insurancePolicy = _mapper.Map<InsurancePolicy>(policyRequestDTO);
 
-                var createdPolicy = await _policyManager.CreateInsurancePolicy(insurancePolicy);
-                var createdPolicyDTO = _mapper.Map<PolicyDTO>(createdPolicy);
+                var responseTuple = await _policyManager.CreateInsurancePolicy(_mapper.Map<InsurancePolicy>(policyRequestDTO));
 
-                return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + createdPolicyDTO.PolicyId, createdPolicyDTO);
+                if (responseTuple.Item1 == true)
+                {
+                    var createdPolicyDTO = _mapper.Map<PolicyDTO>(responseTuple.Item2);
+
+                    return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + createdPolicyDTO.PolicyId, createdPolicyDTO);
+                }
+
+                return BadRequest(responseTuple.Item3);
+
+
             }
             catch (Exception ex)
             {
-                _logger.LogError("An exception has CreatePolicy endpoint, error details: {@Exception}", ex);
+                _logger.LogError("An exception has occurred in CreatePolicy endpoint, error details: {@Exception}", ex);
                 return StatusCode(500);
             }
 
