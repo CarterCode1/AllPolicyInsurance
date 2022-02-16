@@ -17,15 +17,12 @@ namespace AllPolicyInsurance.Controllers
     public class PolicyController : ControllerBase
     {
         private readonly ILogger<PolicyController> _logger;
-        private readonly IConfiguration _configuration;
         private IPolicyManager _policyManager;
         private readonly IMapper _mapper;
 
-        public PolicyController(ILogger<PolicyController> logger, IConfiguration configuration, IMapper mapper, IPolicyManager policyManager)
+        public PolicyController(ILogger<PolicyController> logger,  IMapper mapper, IPolicyManager policyManager)
         {
-
             _logger = logger;
-            _configuration = configuration;
             _mapper = mapper;
             _policyManager = policyManager;
         }
@@ -107,31 +104,15 @@ namespace AllPolicyInsurance.Controllers
         {
             try
             {
+                var createPolicyResponse = await _policyManager.CreateInsurancePolicy(_mapper.Map<InsurancePolicy>(policyRequestDTO));
 
-                if (policyRequestDTO.EffectiveDate < DateTime.Now.AddDays(30))
+                if (createPolicyResponse.IsSuccess == true)
                 {
-                    return BadRequest("Effective Date must be 30 days in the future.");
-                }
-
-                foreach (VehicleDTO vehicle in policyRequestDTO.Vehicles)
-                {
-                    if (int.Parse(vehicle.Year) > int.Parse(_configuration["ClassicVehicle"]))
-                    {
-                        return BadRequest($"Vehicle {vehicle.Make} {vehicle.Model} is ineligible for coverage due to it not meeting the requirements of a Classic Vehicle.");
-                    }
-                }
-
-
-                var responseTuple = await _policyManager.CreateInsurancePolicy(_mapper.Map<InsurancePolicy>(policyRequestDTO));
-
-                if (responseTuple.Item1 == true)
-                {
-                    var createdPolicyDTO = _mapper.Map<PolicyDTO>(responseTuple.Item2);
-
+                    var createdPolicyDTO = createPolicyResponse.Policy;
                     return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + createdPolicyDTO.PolicyId, createdPolicyDTO);
                 }
 
-                return BadRequest(responseTuple.Item3);
+                return BadRequest(createPolicyResponse.Message);
 
 
             }

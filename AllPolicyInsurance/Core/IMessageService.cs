@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using AllPolicyInsurance.Models;
+using System.Threading.Tasks;
 
 namespace AllPolicyInsurance.Core
 {
     public interface IMessageService
     {
-        Task<string> PublishNewPolicy();
+        Task<bool> PublishNewPolicy(InsurancePolicy policy);
     }
 }

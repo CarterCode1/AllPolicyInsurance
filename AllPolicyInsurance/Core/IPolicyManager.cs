@@ -12,7 +12,7 @@ namespace AllPolicyInsurance.Core
         Task<IList<InsurancePolicy>> GetPolicies();
         Task<InsurancePolicy> GetPolicyById(int id);
         Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber, string sortOrder, bool isExpired = false);
-        Task<Tuple<bool, InsurancePolicy, string>> CreateInsurancePolicy(InsurancePolicy insurancePolicy);
+        Task<CreatePolicyResponse> CreateInsurancePolicy(InsurancePolicy insurancePolicy);
         Task DeletePolicy(InsurancePolicy policy);
     }
 }
