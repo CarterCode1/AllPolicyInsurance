@@ -21,7 +21,6 @@ namespace AllPolicyInsurance.Models
         public string State { get; set; }
 
         [Required]
-        [StringLength(5)]
         public string PostalCode { get; set; }
 
         public int InsurancePolicyId { get; set; }

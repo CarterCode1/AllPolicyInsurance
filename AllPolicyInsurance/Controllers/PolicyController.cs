@@ -12,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace AllPolicyInsurance.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class PolicyController : ControllerBase
     {
@@ -44,13 +44,13 @@ namespace AllPolicyInsurance.Controllers
             }
         }
 
-        [HttpGet("id/{id}")]
-        public async Task<IActionResult> GetPoliciesById(int id)
+        [HttpGet("id/{id}/license/{license}")]
+        public async Task<IActionResult> GetPoliciesById(int id, string license)
         {
             try
             {
 
-                var policy = await _policyManager.GetPolicyById(id);
+                var policy = await _policyManager.GetPolicyById(id, license);
                 var policyDTO = _mapper.Map<PolicyDTO>(policy);
 
                 if (policyDTO != null)
@@ -67,29 +67,29 @@ namespace AllPolicyInsurance.Controllers
             }
         }
 
-        [HttpGet("liscence/{liscence}")]
-        public async Task<IActionResult> GetPoliciesByDriversLiscense(string liscence, string sortOrder, bool isExpired = false)
+        [HttpGet("license/{license}")]
+        public async Task<IActionResult> GetPoliciesByDriversLiscense(string license, string sortOrder, bool isExpired = false)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(liscence))
+                if (string.IsNullOrWhiteSpace(license))
                 {
-                    return BadRequest("Drivers Liscence number is required.");
+                    return BadRequest("Drivers license number is required.");
                 }
 
-                if (!int.TryParse(liscence, out _))
+                if (!int.TryParse(license, out _ ))
                 {
-                    return BadRequest("Drivers Liscence is required to in number format.");
+                    return BadRequest("Drivers license is required to in number format.");
                 }
 
-                var policies = await _policyManager.GetPoliciesByDriversLiscense(liscence, sortOrder, isExpired);
+                var policies = await _policyManager.GetPoliciesByDriversLiscense(license, sortOrder, isExpired);
                 var policyDTO = _mapper.Map<List<PolicyDTO>>(policies);
 
                 if (policyDTO.Any())
                 {
                     return Ok(policyDTO);
                 }
-                return NotFound($"Policy with Drivers Liscense {liscence} was not found.");
+                return NotFound($"Policy with Drivers Liscense {license} was not found.");
             }
             catch (Exception ex)
             {

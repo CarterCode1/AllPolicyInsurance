@@ -8,26 +8,22 @@ namespace AllPolicyInsurance.Core
 {
     public class MockMessageService : IMessageService
     {
-        private AsyncRetryPolicy _retryPolicy;
-
-        public MockMessageService()
+        public bool PublishNewPolicy(InsurancePolicy policy)
         {
-            _retryPolicy = Policy.Handle<Exception>().WaitAndRetryAsync(3, retryAttempt =>
+            bool result = false;
+
+            Policy.Handle<Exception>()
+                .Retry(3, (exception, retryCount) =>
+                {
+                    Task.Delay(500).Wait();
+                })
+            .Execute(() =>
             {
-                var timeToWait = TimeSpan.FromSeconds(Math.Pow(2, retryAttempt));
-                Console.WriteLine($"Waiting {timeToWait.TotalSeconds} seconds");
+                var rand = new Random();
+                result = (bool)(rand.Next(0, 1) == 0);
+            });
 
-                return timeToWait;
-            }
-    );
-        }
-
-        public Task<bool> PublishNewPolicy(InsurancePolicy policy)
-        {
-            var rand = new Random();
-            
-            return Task.FromResult<bool>(rand.Next(2) == 0);
-
+            return result;
         }
     }
 }

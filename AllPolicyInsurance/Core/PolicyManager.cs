@@ -45,7 +45,8 @@ namespace AllPolicyInsurance.Core
 
             var createdPolicy = await _policyRepository.CreateInsurancePolicy(insurancePolicy);
 
-            //var isPublishSuccess =  _messageService.PublishNewPolicy(createdPolicy);
+
+            PublishPolicy(createdPolicy);
 
             return new CreatePolicyResponse()
             {
@@ -70,15 +71,16 @@ namespace AllPolicyInsurance.Core
             return await _policyRepository.GetPoliciesByDriversLiscense(liscenseNumber, sortOrder, isExpired);
         }
 
-        public async Task<InsurancePolicy> GetPolicyById(int id)
+        public async Task<InsurancePolicy> GetPolicyById(int id, string licenseNumber)
         {
-            return await _policyRepository.GetPolicyById(id);
+            return await _policyRepository.GetPolicyById(id, licenseNumber);
         }
         
         private bool ValidateInsurancePolicy(InsurancePolicy insurancePolicy)
         {
             return (VerifyEffectiveDate(insurancePolicy.EffectiveDate) && VerifyClassicVehicle(insurancePolicy.Vehicles) && VerifyStateRegulations(insurancePolicy));
         }
+
         private bool VerifyEffectiveDate(DateTime effectiveDate)
         {
             if(effectiveDate < DateTime.Now.AddDays(30))
@@ -100,6 +102,21 @@ namespace AllPolicyInsurance.Core
                 }
             }
             return true;
+        }
+
+        private  void PublishPolicy(InsurancePolicy insurancePolicy)
+        {
+
+            var _ = Task.Run(() =>
+            {
+                var result = _messageService.PublishNewPolicy(insurancePolicy);
+
+                if (!result)
+                {
+                    _logger.LogError("Unable to send message");
+                }
+            });
+
         }
     }
 }

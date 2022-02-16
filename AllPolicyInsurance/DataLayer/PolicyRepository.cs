@@ -84,12 +84,12 @@ namespace AllPolicyInsurance.DataLayer
             }
         }
 
-        public async Task<InsurancePolicy> GetPolicyById(int id)
+        public async Task<InsurancePolicy> GetPolicyById(int id, string licenseNumber)
         {
             var policy = await _dbContext.InsurancePolicies
                  .Include(x => x.Vehicles)
                  .Include(y => y.Address)
-                 .FirstOrDefaultAsync(p => p.PolicyId == id);
+                 .FirstOrDefaultAsync(p => p.PolicyId == id  && p.DriversLicenseNumber == licenseNumber  );
 
             return policy;
         }

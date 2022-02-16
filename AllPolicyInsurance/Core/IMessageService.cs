@@ -5,6 +5,6 @@ namespace AllPolicyInsurance.Core
 {
     public interface IMessageService
     {
-        Task<bool> PublishNewPolicy(InsurancePolicy policy);
+        bool PublishNewPolicy(InsurancePolicy policy);
     }
 }

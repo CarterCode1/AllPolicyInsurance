@@ -9,7 +9,7 @@ namespace AllPolicyInsurance.DataLayer
     public interface IPolicyRepository
     {
         Task<IList<InsurancePolicy>> GetPolicies();
-        Task<InsurancePolicy> GetPolicyById(int id);
+        Task<InsurancePolicy> GetPolicyById(int id, string licenseNumber);
         Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber, string sortOrder, bool isExpired = false);
         Task<InsurancePolicy> CreateInsurancePolicy(InsurancePolicy insurancePolicy);
         Task DeletePolicy(InsurancePolicy policy);

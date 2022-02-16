@@ -10,7 +10,7 @@ namespace AllPolicyInsurance.Core
     public interface IPolicyManager
     {
         Task<IList<InsurancePolicy>> GetPolicies();
-        Task<InsurancePolicy> GetPolicyById(int id);
+        Task<InsurancePolicy> GetPolicyById(int id, string licenseNumber);
         Task<IList<InsurancePolicy>> GetPoliciesByDriversLiscense(string liscenseNumber, string sortOrder, bool isExpired = false);
         Task<CreatePolicyResponse> CreateInsurancePolicy(InsurancePolicy insurancePolicy);
         Task DeletePolicy(InsurancePolicy policy);

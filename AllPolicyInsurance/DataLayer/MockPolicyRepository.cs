@@ -58,7 +58,7 @@ namespace AllPolicyInsurance.DataLayer
             throw new System.NotImplementedException();
         }
 
-        public Task<InsurancePolicy> GetPolicyById(int id)
+        public Task<InsurancePolicy> GetPolicyById(int id, string liscenseNumber)
         {
             return Task.FromResult<InsurancePolicy>(
                 _insurancePolicies.SingleOrDefault(x => x.PolicyId == id));
