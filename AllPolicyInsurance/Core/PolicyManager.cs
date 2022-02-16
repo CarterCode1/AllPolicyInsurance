@@ -33,7 +33,7 @@ namespace AllPolicyInsurance.Core
         public async Task<CreatePolicyResponse> CreateInsurancePolicy(InsurancePolicy insurancePolicy)
         {
             
-            if(!VerifyEffectiveDate(insurancePolicy))
+            if(!ValidateInsurancePolicy(insurancePolicy))
             {
                 return new CreatePolicyResponse()
                 {
@@ -41,25 +41,6 @@ namespace AllPolicyInsurance.Core
                     Message = DeclinedExplanation,
                     Policy = _mapper.Map<PolicyDTO>(insurancePolicy),
                 };
-            }
-
-            if(!VerifyClassicVehicle(insurancePolicy))
-            {
-                return new CreatePolicyResponse()
-                {
-                    IsSuccess = false,
-                    Message = DeclinedExplanation,
-                    Policy = _mapper.Map<PolicyDTO>(insurancePolicy),
-                };
-            }
-
-            if(!VerifyStateRegulations(insurancePolicy))
-            {
-                return new CreatePolicyResponse() { 
-                    IsSuccess = false, 
-                    Message = DeclinedExplanation,
-                    Policy = _mapper.Map<PolicyDTO>(insurancePolicy),
-                };    
             }
 
             var createdPolicy = await _policyRepository.CreateInsurancePolicy(insurancePolicy);
@@ -69,7 +50,7 @@ namespace AllPolicyInsurance.Core
             return new CreatePolicyResponse()
             {
                 IsSuccess = true,
-                Policy = _mapper.Map<PolicyDTO>(insurancePolicy),
+                Policy = _mapper.Map<PolicyDTO>(createdPolicy),
                 Message = null,
             };
         }
@@ -94,7 +75,10 @@ namespace AllPolicyInsurance.Core
             return await _policyRepository.GetPolicyById(id);
         }
         
-
+        private bool ValidateInsurancePolicy(InsurancePolicy insurancePolicy)
+        {
+            return (VerifyEffectiveDate(insurancePolicy) && VerifyClassicVehicle(insurancePolicy) && VerifyStateRegulations(insurancePolicy));
+        }
         private bool VerifyEffectiveDate(InsurancePolicy insurancePolicy)
         {
             if(insurancePolicy.EffectiveDate < DateTime.Now.AddDays(30))
